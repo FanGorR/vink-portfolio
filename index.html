@@ -362,7 +362,7 @@
     font-size: 0.5rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(138,100,32,0.6);
+    color: rgba(232,224,208,0.85);
     position: absolute;
     bottom: 6px; left: 10px;
   }
@@ -612,12 +612,24 @@
   .award-item {
     padding: 40px 36px;
     border: 1px solid rgba(200,146,42,0.08);
-    background: rgba(200,146,42,0.02);
+    background-color: rgba(200,146,42,0.02);
+    background-size: cover;
+    background-position: center;
     transition: background 0.3s, border-color 0.3s;
+    overflow: hidden;
+    position: relative;
   }
-  .award-item:hover {
-    background: var(--amber-dim);
-    border-color: rgba(200,146,42,0.2);
+  .award-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(14,12,10,0.6) 0%, rgba(14,12,10,0.88) 100%);
+    z-index: 0;
+  }
+  .award-item:hover { border-color: rgba(200,146,42,0.2); }
+  .award-place, .award-film, .award-fest, .award-extra {
+    position: relative;
+    z-index: 1;
   }
   .award-place {
     font-family: var(--font-display);
@@ -971,7 +983,7 @@
 
     <!-- Dreamer — WIDE -->
     <a class="project-card wide" href="https://youtu.be/Z10iv_lunP0" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-dreamer pb-grid, url('images/dreamer.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/dreamer.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Editor</p>
@@ -984,7 +996,7 @@
 
     <!-- Langit Perlis -->
     <a class="project-card" href="https://youtu.be/RXI0uweZEbg" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-langit pb-grid, url('images/langit.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/langit.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Travel Documentary &nbsp;·&nbsp; Director &nbsp;·&nbsp; Colorist</p>
@@ -997,7 +1009,7 @@
 
     <!-- VinK Film PowerGrade -->
     <a class="project-card" href="https://vink0925.gumroad.com/l/vinkfilm" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-powergrade pb-grid, url('images/powergrade.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/powergrade.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">DaVinci Resolve &nbsp;·&nbsp; Color Science &nbsp;·&nbsp; CST Pipeline</p>
@@ -1010,7 +1022,7 @@
 
     <!-- Nyawa Berharga — WIDE -->
     <a class="project-card wide" href="https://youtu.be/P8vKICADGDY" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-nyawa pb-grid, url('images/nyawa.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/nyawa.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer</p>
@@ -1023,7 +1035,7 @@
 
     <!-- KOL Collab -->
     <a class="project-card" href="https://www.instagram.com/p/DAGROAQgk25/" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-kol pb-grid, url('images/kol.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/kol.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Creativity &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Video Editor</p>
@@ -1036,7 +1048,7 @@
 
     <!-- SPF UUM -->
     <a class="project-card" href="https://www.instagram.com/reel/C12Eib8PuV2/" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-langit pb-grid, url('images/spf.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/spf.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Publicity &nbsp;·&nbsp; Videographer &nbsp;·&nbsp; Editor</p>
@@ -1049,7 +1061,7 @@
 
     <!-- Never Give Up — WIDE -->
     <a class="project-card wide" href="https://youtu.be/S-oPoHIqU_o" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: pb-dreamer pb-grid, url('images/nevergiveup.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.3) 55%, transparent 100%), url('images/nevergiveup.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Super Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Editor</p>
@@ -1073,37 +1085,37 @@
     <div class="section-line"></div>
   </div>
   <div class="awards-grid reveal">
-    <div class="award-item">
+    <div class="award-item" style="background-image: url('images/dreamer.jpg');">
       <div class="award-place">2nd</div>
       <div class="award-film">Dreamer</div>
       <div class="award-fest">LOKA International Short Film Festival<br>Open Category · 2025</div>
       <div class="award-extra">Best Original Story Nomination</div>
     </div>
-    <div class="award-item">
+    <div class="award-item" style="background-image: url('images/langit.jpg');">
       <div class="award-place">3rd</div>
       <div class="award-film">Langit Perlis</div>
       <div class="award-fest">LOKA International Short Film Festival<br>IPT Category · 2025</div>
       <div class="award-extra">Best Script & Narrative Award · Best Cinematography Nomination</div>
     </div>
-    <div class="award-item">
+    <div class="award-item" style="background-image: url('images/nyawa.jpg');">
       <div class="award-place">2nd</div>
       <div class="award-film">Nyawa Berharga</div>
       <div class="award-fest">Pertandingan Video Clip Keselamatan Jalan Raya<br>JPJ Kedah · 2024</div>
       <div class="award-extra">1.7K Views · 204 Likes on YouTube</div>
     </div>
-    <div class="award-item">
+    <div class="award-item" style="background-image: url('images/nevergiveup.jpg');">
       <div class="award-place">Top 20</div>
       <div class="award-film">Never Give Up</div>
       <div class="award-fest">Nikon Super Short Film Contest<br>National Competition</div>
       <div class="award-extra">Finalist — nationwide</div>
     </div>
-    <div class="award-item">
+    <div class="award-item" style="background-image: url('images/kol.jpg');">
       <div class="award-place">125K</div>
       <div class="award-film">KOL Collab · Social Media</div>
       <div class="award-fest">Instagram Cinematic Video<br>Creative Work · 2024</div>
       <div class="award-extra">125k views on video</div>
-    </div
-    <div class="award-item">
+    </div>
+    <div class="award-item" style="background-image: url('images/uum.jpg');">
       <div class="award-place">5×</div>
       <div class="award-film">Dean's List</div>
       <div class="award-fest">Universiti Utara Malaysia<br>Semester 1,2,3,4,5 · 2023–2026</div>
