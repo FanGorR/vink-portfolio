@@ -201,7 +201,7 @@
     display: block;
     color: transparent;
     -webkit-text-stroke: 1px rgba(232,224,208,0.3);
-    margin-left: 6vw;
+    margin-left: clamp(0px, 3vw, 6vw);
   }
   .hero-tagline {
     font-family: var(--font-serif);
@@ -751,8 +751,8 @@
   .contact-big {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(1.8rem, 8vw, 5.5rem);
-    line-height: 0.95;
+    font-size: clamp(1.6rem, 7.5vw, 5.5rem);
+    line-height: 1;
     text-transform: uppercase;
     letter-spacing: -0.02em;
   }
@@ -1027,7 +1027,7 @@
 
     <!-- Dreamer — WIDE -->
     <a class="project-card wide" href="https://youtu.be/Z10iv_lunP0" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/dreamer.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #1a1205 50%, #2d1f08 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/dreamer.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Editor</p>
@@ -1040,7 +1040,7 @@
 
     <!-- Langit Perlis -->
     <a class="project-card" href="https://youtu.be/RXI0uweZEbg" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/langit.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #080f10 50%, #0d1e1c 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/langit.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Travel Documentary &nbsp;·&nbsp; Director &nbsp;·&nbsp; Colorist</p>
@@ -1053,7 +1053,7 @@
 
     <!-- VinK Film PowerGrade -->
     <a class="project-card" href="https://vink0925.gumroad.com/l/vinkfilm" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/powergrade.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #150c08 50%, #251208 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/powergrade.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">DaVinci Resolve &nbsp;·&nbsp; Color Science &nbsp;·&nbsp; CST Pipeline</p>
@@ -1066,7 +1066,7 @@
 
     <!-- Nyawa Berharga — WIDE -->
     <a class="project-card wide" href="https://youtu.be/P8vKICADGDY" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/nyawa.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #0a0a15 50%, #10102a 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/nyawa.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer</p>
@@ -1079,7 +1079,7 @@
 
     <!-- KOL Collab -->
     <a class="project-card" href="https://www.instagram.com/p/DAGROAQgk25/" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/kol.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #121008 50%, #201a08 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/kol.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Creativity &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Video Editor</p>
@@ -1092,7 +1092,7 @@
 
     <!-- SPF UUM -->
     <a class="project-card" href="https://www.instagram.com/reel/C12Eib8PuV2/" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/spf.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #080f10 50%, #0d1e1c 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/spf.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Publicity &nbsp;·&nbsp; Videographer &nbsp;·&nbsp; Editor</p>
@@ -1105,7 +1105,7 @@
 
     <!-- Never Give Up — WIDE -->
     <a class="project-card wide" href="https://youtu.be/S-oPoHIqU_o" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/nevergiveup.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="project-bg" style="background: linear-gradient(135deg, #1a1205 50%, #2d1f08 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/nevergiveup.jpg'); background-size:cover; background-position:center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Super Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Editor</p>
