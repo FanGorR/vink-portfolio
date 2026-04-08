@@ -828,15 +828,53 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { gap: 20px; }
-    section { padding: 80px 6vw; }
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card.wide { grid-column: span 1; aspect-ratio: 16/10; }
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.62rem; letter-spacing: 0.08em; }
+    section { padding: 72px 5vw; }
+
+    /* Hero */
+    #hero { padding: 0 6vw; min-height: 100svh; }
+    .hero-frame-count { display: none; }
+    .hero-scroll { left: 6vw; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    /* Projects */
+    .projects-grid { grid-template-columns: 1fr; gap: 1px; }
+    .project-card { aspect-ratio: 4/3; }
+    .project-card.wide { grid-column: span 1; aspect-ratio: 4/3; }
+    .project-content { padding: 24px 20px; }
+    .project-title { font-size: 1.3rem; }
+    .project-desc { opacity: 1; transform: none; font-size: 0.85rem; }
+    .project-arrow { opacity: 1; transform: none; }
+
+    /* Awards */
+    .awards-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+    .award-item { padding: 28px 20px; }
+    .award-place { font-size: 1.8rem; }
+
+    /* Contact */
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .contact-big { font-size: clamp(2.5rem, 8vw, 4rem); }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 5vw; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 14px 16px; }
+    .nav-links { gap: 12px; }
+    .nav-links a { font-size: 0.58rem; }
+    section { padding: 60px 5vw; }
+    .hero-name { font-size: clamp(3rem, 14vw, 5rem); }
+    .project-card { aspect-ratio: 3/2; }
+    .project-card.wide { aspect-ratio: 3/2; }
+    .project-content { padding: 16px; }
     .awards-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-    footer { flex-direction: column; gap: 8px; text-align: center; }
+    .award-item { padding: 24px 16px; }
+    .contact-big { font-size: clamp(2rem, 10vw, 3rem); }
   }
 </style>
 </head>
