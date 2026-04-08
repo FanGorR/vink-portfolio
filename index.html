@@ -366,11 +366,11 @@
     position: absolute;
     bottom: 6px; left: 10px;
   }
-  .ff1 { background: linear-gradient(135deg, #1a1205 0%, #2d1f08 100%); }
-  .ff2 { background: linear-gradient(135deg, #080f10 0%, #0d1e1c 100%); }
-  .ff3 { background: linear-gradient(135deg, #150c08 0%, #251208 100%); }
-  .ff4 { background: linear-gradient(135deg, #0a0a15 0%, #10102a 100%); }
-  .ff5 { background: linear-gradient(135deg, #121008 0%, #201a08 100%); }
+  .ff1 { background: linear-gradient(135deg, #1a1205 50%, #2d1f08 100%); }
+  .ff2 { background: linear-gradient(135deg, #080f10 50%, #0d1e1c 100%); }
+  .ff3 { background: linear-gradient(135deg, #150c08 50%, #251208 100%); }
+  .ff4 { background: linear-gradient(135deg, #0a0a15 50%, #10102a 100%); }
+  .ff5 { background: linear-gradient(135deg, #121008 50%, #201a08 100%); }
 
   /* SECTION SHARED */
   section {
@@ -564,31 +564,31 @@
     background:
       radial-gradient(ellipse at 30% 40%, rgba(200,100,42,0.25) 0%, transparent 60%),
       radial-gradient(ellipse at 75% 65%, rgba(180,140,60,0.15) 0%, transparent 50%),
-      linear-gradient(135deg, #120a04 0%, #1e1008 100%);
+      linear-gradient(135deg, #120a04 0%, #1e1008 100%, transparent 50%);
   }
   .pb-langit {
     background:
       radial-gradient(ellipse at 60% 30%, rgba(80,160,200,0.2) 0%, transparent 60%),
       radial-gradient(ellipse at 20% 70%, rgba(42,120,80,0.15) 0%, transparent 50%),
-      linear-gradient(135deg, #060c10 0%, #08121a 100%);
+      linear-gradient(135deg, #060c10 0%, #08121a 100%, transparent 50%);
   }
   .pb-powergrade {
     background:
       radial-gradient(ellipse at 50% 40%, rgba(200,146,42,0.3) 0%, transparent 55%),
       radial-gradient(ellipse at 20% 70%, rgba(163,74,42,0.2) 0%, transparent 50%),
-      linear-gradient(135deg, #100a04 0%, #1c1008 100%);
+      linear-gradient(135deg, #100a04 0%, #1c1008 100%, transparent 50%);
   }
   .pb-nyawa {
     background:
       radial-gradient(ellipse at 40% 35%, rgba(180,40,40,0.2) 0%, transparent 60%),
       radial-gradient(ellipse at 70% 70%, rgba(200,146,42,0.12) 0%, transparent 50%),
-      linear-gradient(135deg, #100606 0%, #1a0a08 100%);
+      linear-gradient(135deg, #100606 0%, #1a0a08 100%, transparent 50%);
   }
   .pb-kol {
     background:
       radial-gradient(ellipse at 50% 30%, rgba(180,42,120,0.15) 0%, transparent 60%),
       radial-gradient(ellipse at 30% 70%, rgba(42,80,200,0.12) 0%, transparent 50%),
-      linear-gradient(135deg, #080510 0%, #100a18 100%);
+      linear-gradient(135deg, #080510 0%, #100a18 100%, transparent 50%);
   }
   .pb-grid::after {
     content: '';
@@ -971,7 +971,7 @@
 
     <!-- Dreamer — WIDE -->
     <a class="project-card wide" href="https://youtu.be/Z10iv_lunP0" target="_blank" rel="noopener">
-      <div class="project-bg pb-dreamer pb-grid" style="background-image: pb-dreamer pb-grid, url('images/dreamer.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-dreamer pb-grid, url('images/dreamer.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Editor</p>
@@ -984,7 +984,7 @@
 
     <!-- Langit Perlis -->
     <a class="project-card" href="https://youtu.be/RXI0uweZEbg" target="_blank" rel="noopener">
-      <div class="project-bg pb-langit pb-grid" style="background-image: pb-langit pb-grid, url('images/langit.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-langit pb-grid, url('images/langit.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Travel Documentary &nbsp;·&nbsp; Director &nbsp;·&nbsp; Colorist</p>
@@ -997,7 +997,7 @@
 
     <!-- VinK Film PowerGrade -->
     <a class="project-card" href="https://vink0925.gumroad.com/l/vinkfilm" target="_blank" rel="noopener">
-      <div class="project-bg pb-powergrade pb-grid" style="background-image: pb-powergrade pb-grid, url('images/powergrade.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-powergrade pb-grid, url('images/powergrade.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">DaVinci Resolve &nbsp;·&nbsp; Color Science &nbsp;·&nbsp; CST Pipeline</p>
@@ -1010,7 +1010,7 @@
 
     <!-- Nyawa Berharga — WIDE -->
     <a class="project-card wide" href="https://youtu.be/P8vKICADGDY" target="_blank" rel="noopener">
-      <div class="project-bg pb-nyawa pb-grid" style="background-image: pb-nyawa pb-grid, url('images/nyawa.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-nyawa pb-grid, url('images/nyawa.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer</p>
@@ -1023,7 +1023,7 @@
 
     <!-- KOL Collab -->
     <a class="project-card" href="https://www.instagram.com/p/DAGROAQgk25/" target="_blank" rel="noopener">
-      <div class="project-bg pb-kol pb-grid" style="background-image: pb-kol pb-grid, url('images/kol.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-kol pb-grid, url('images/kol.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Creativity &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Video Editor</p>
@@ -1036,7 +1036,7 @@
 
     <!-- SPF UUM -->
     <a class="project-card" href="https://www.instagram.com/reel/C12Eib8PuV2/" target="_blank" rel="noopener">
-      <div class="project-bg pb-langit pb-grid" style="background-image: pb-langit pb-grid, url('images/spf.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-langit pb-grid, url('images/spf.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Publicity &nbsp;·&nbsp; Videographer &nbsp;·&nbsp; Editor</p>
@@ -1049,7 +1049,7 @@
 
     <!-- Never Give Up — WIDE -->
     <a class="project-card wide" href="https://youtu.be/S-oPoHIqU_o" target="_blank" rel="noopener">
-      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.85) 0%, rgba(10,8,5,0.2) 60%, transparent 100%), url('images/nevergiveup.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="project-bg" style="background-image: pb-dreamer pb-grid, url('images/nevergiveup.jpg'); background-size: cover; background-position: center;"></div>
       <div class="project-overlay"></div>
       <div class="project-content">
         <p class="project-tag">Super Short Film &nbsp;·&nbsp; Director &nbsp;·&nbsp; Cinematographer &nbsp;·&nbsp; Editor</p>
@@ -1074,42 +1074,36 @@
   </div>
   <div class="awards-grid reveal">
     <div class="award-item">
-      <img src="images/dreamer.jpg" alt="Dreamer" class="award-thumb">
       <div class="award-place">2nd</div>
       <div class="award-film">Dreamer</div>
       <div class="award-fest">LOKA International Short Film Festival<br>Open Category · 2025</div>
       <div class="award-extra">Best Original Story Nomination</div>
     </div>
     <div class="award-item">
-      <img src="images/langit.jpg" alt="Langit Perlis" class="award-thumb">
       <div class="award-place">3rd</div>
       <div class="award-film">Langit Perlis</div>
       <div class="award-fest">LOKA International Short Film Festival<br>IPT Category · 2025</div>
       <div class="award-extra">Best Script & Narrative Award · Best Cinematography Nomination</div>
     </div>
     <div class="award-item">
-      <img src="images/nyawa.jpg" alt="Nyawa Berharga" class="award-thumb">
       <div class="award-place">2nd</div>
       <div class="award-film">Nyawa Berharga</div>
       <div class="award-fest">Pertandingan Video Clip Keselamatan Jalan Raya<br>JPJ Kedah · 2024</div>
       <div class="award-extra">1.7K Views · 204 Likes on YouTube</div>
     </div>
     <div class="award-item">
-      <img src="images/nevergiveup.jpg" alt="Never Give Up" class="award-thumb">
       <div class="award-place">Top 20</div>
       <div class="award-film">Never Give Up</div>
       <div class="award-fest">Nikon Super Short Film Contest<br>National Competition</div>
       <div class="award-extra">Finalist — nationwide</div>
     </div>
     <div class="award-item">
-      <img src="images/kol.jpg" alt="KOL Collab" class="award-thumb">
       <div class="award-place">125K</div>
       <div class="award-film">KOL Collab · Social Media</div>
       <div class="award-fest">Instagram Cinematic Video<br>Creative Work · 2024</div>
       <div class="award-extra">125k views on video</div>
     </div
     <div class="award-item">
-      <img src="images/uum.jpg" alt="UUM Dean's List" class="award-thumb">
       <div class="award-place">5×</div>
       <div class="award-film">Dean's List</div>
       <div class="award-fest">Universiti Utara Malaysia<br>Semester 1,2,3,4,5 · 2023–2026</div>
@@ -1247,7 +1241,7 @@
     { cls: 'ff4', label: 'Nyawa Berharga · JPJ 2nd', icon: '⬡', img: 'images/nyawa.jpg' },
     { cls: 'ff5', label: 'KOL · 125K Views', icon: '◆', img: 'images/kol.jpg' },
     { cls: 'ff1', label: 'SPF UUM · Publicity', icon: '◈', img: 'images/spf.jpg' },
-    { cls: 'ff3', label: 'Nikon · Top 20', icon: '◎', img: 'images/nevergiveup.jpg' },
+    { cls: 'ff3', label: 'Nikon Contest · Top 20', icon: '◎', img: 'images/nevergiveup.jpg' },
     { cls: 'ff2', label: 'Film · Color · Story', icon: '◑', img: 'images/hero.jpg' },
   ];
 
