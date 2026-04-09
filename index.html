@@ -1331,12 +1331,24 @@
   let startX = 0;
   let currentOffset = 0;
   let animPaused = false;
+  let resumeTimer = null;
+
+  function getHalfWidth() {
+    return track.scrollWidth / 2;
+  }
+
+  function normalizeOffset(offset) {
+    const half = getHalfWidth();
+    offset = offset % half;
+    if (offset > 0) offset -= half;
+    return offset;
+  }
 
   function pauseAnim() {
     if (!animPaused) {
       const computed = window.getComputedStyle(track);
       const matrix = new DOMMatrix(computed.transform);
-      currentOffset = matrix.m41;
+      currentOffset = normalizeOffset(matrix.m41);
       track.style.animation = 'none';
       track.style.transform = `translateX(${currentOffset}px)`;
       animPaused = true;
@@ -1349,40 +1361,45 @@
     animPaused = false;
   }
 
+  function applyOffset(offset) {
+    currentOffset = normalizeOffset(offset);
+    track.style.transform = `translateX(${currentOffset}px)`;
+  }
+
   // Mouse
   filmstrip.addEventListener('mousedown', e => {
     isDragging = true;
-    startX = e.clientX - currentOffset;
     pauseAnim();
+    startX = e.clientX - currentOffset;
     filmstrip.style.cursor = 'grabbing';
+    clearTimeout(resumeTimer);
   });
 
   window.addEventListener('mousemove', e => {
     if (!isDragging) return;
-    currentOffset = e.clientX - startX;
-    track.style.transform = `translateX(${currentOffset}px)`;
+    applyOffset(e.clientX - startX);
   });
 
   window.addEventListener('mouseup', () => {
     if (!isDragging) return;
     isDragging = false;
     filmstrip.style.cursor = 'grab';
-    setTimeout(resumeAnim, 1500);
+    resumeTimer = setTimeout(resumeAnim, 1500);
   });
 
   // Touch
   filmstrip.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX - currentOffset;
     pauseAnim();
+    startX = e.touches[0].clientX - currentOffset;
+    clearTimeout(resumeTimer);
   }, { passive: true });
 
   filmstrip.addEventListener('touchmove', e => {
-    currentOffset = e.touches[0].clientX - startX;
-    track.style.transform = `translateX(${currentOffset}px)`;
+    applyOffset(e.touches[0].clientX - startX);
   }, { passive: true });
 
   filmstrip.addEventListener('touchend', () => {
-    setTimeout(resumeAnim, 1500);
+    resumeTimer = setTimeout(resumeAnim, 1500);
   });
 
   filmstrip.style.cursor = 'grab';
