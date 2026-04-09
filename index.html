@@ -303,6 +303,8 @@
     border-top: 1px solid rgba(200,146,42,0.1);
     border-bottom: 1px solid rgba(200,146,42,0.1);
     background: var(--dark2);
+    -webkit-transform: translateZ(0);
+     transform: translateZ(0);
   }
   .filmstrip-holes {
     display: flex;
@@ -330,6 +332,8 @@
     width: max-content;
     will-change: transform;
     -webkit-animation: slideFilm 28s linear infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   @-webkit-keyframes slideFilm {
     0% { -webkit-transform: translateX(0); transform: translateX(0); }
