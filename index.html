@@ -1325,6 +1325,68 @@
     track.appendChild(el);
   });
 
+  // Filmstrip drag & touch scroll
+  const filmstrip = document.querySelector('.filmstrip');
+  let isDragging = false;
+  let startX = 0;
+  let currentOffset = 0;
+  let animPaused = false;
+
+  function pauseAnim() {
+    if (!animPaused) {
+      const computed = window.getComputedStyle(track);
+      const matrix = new DOMMatrix(computed.transform);
+      currentOffset = matrix.m41;
+      track.style.animation = 'none';
+      track.style.transform = `translateX(${currentOffset}px)`;
+      animPaused = true;
+    }
+  }
+
+  function resumeAnim() {
+    track.style.animation = '';
+    track.style.transform = '';
+    animPaused = false;
+  }
+
+  // Mouse
+  filmstrip.addEventListener('mousedown', e => {
+    isDragging = true;
+    startX = e.clientX - currentOffset;
+    pauseAnim();
+    filmstrip.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    currentOffset = e.clientX - startX;
+    track.style.transform = `translateX(${currentOffset}px)`;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    filmstrip.style.cursor = 'grab';
+    setTimeout(resumeAnim, 1500);
+  });
+
+  // Touch
+  filmstrip.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX - currentOffset;
+    pauseAnim();
+  }, { passive: true });
+
+  filmstrip.addEventListener('touchmove', e => {
+    currentOffset = e.touches[0].clientX - startX;
+    track.style.transform = `translateX(${currentOffset}px)`;
+  }, { passive: true });
+
+  filmstrip.addEventListener('touchend', () => {
+    setTimeout(resumeAnim, 1500);
+  });
+
+  filmstrip.style.cursor = 'grab';
+
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
