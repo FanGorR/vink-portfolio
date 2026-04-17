@@ -236,11 +236,14 @@ section { position: relative; padding: 120px 8vw; overflow: hidden; }
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(2.8rem, 9vw, 7rem);
-  line-height: 0.92;
+  line-height: 0.95;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   color: var(--cream);
   margin-bottom: 28px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .project-hero-tagline {
   font-family: var(--font-serif);
@@ -803,8 +806,8 @@ footer {
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 14px 20px; }
-  .nav-links { gap: 14px; }
-  .nav-links a { font-size: 0.6rem; letter-spacing: 0.06em; }
+  .nav-links { gap: 12px; flex-wrap: nowrap; }
+  .nav-links a { font-size: 0.6rem; letter-spacing: 0.06em; white-space: nowrap; }
 
   .listing-hero { padding: 100px 5vw 48px; }
   .cards-section { padding: 48px 5vw; }
@@ -816,8 +819,11 @@ footer {
   .card-desc { opacity: 1 !important; transform: none !important; font-size: 0.85rem; }
   .card-arrow { opacity: 1 !important; transform: none !important; top: 16px; right: 16px; }
 
-  .project-hero { min-height: 50vh; padding: 0 5vw 56px; }
-  .project-hero-title { font-size: clamp(2.2rem, 12vw, 5rem); }
+  .project-hero { min-height: 45vh; padding: 0 5vw 48px; }
+  .project-hero-title { font-size: clamp(1.7rem, 6.5vw, 3rem); letter-spacing: -0.01em; }
+  .project-hero-eyebrow { flex-wrap: wrap; gap: 6px 12px; font-size: 0.6rem; }
+  .project-hero-tagline { font-size: 1rem; }
+  .project-award-badge { font-size: 0.55rem; padding: 8px 14px; }
   .project-meta { padding: 0 5vw; flex-direction: column; }
   .meta-item { padding: 16px 0; border-right: none; margin-right: 0; border-bottom: 1px solid rgba(200,146,42,0.08); }
   .project-body { grid-template-columns: 1fr; gap: 48px; padding: 48px 5vw; }
@@ -836,8 +842,21 @@ footer {
 
 @media (max-width: 480px) {
   nav { padding: 12px 14px; }
-  .nav-links { gap: 10px; }
-  .nav-links a { font-size: 0.55rem; }
+  .nav-links { gap: 8px; }
+  .nav-links a { font-size: 0.52rem; letter-spacing: 0.05em; }
+
+  /* 超小屏幕：进一步缩小 hero 标题 */
+  .project-hero { padding: 0 4vw 40px; }
+  .project-hero-title { font-size: clamp(1.4rem, 7.5vw, 2rem); letter-spacing: -0.01em; line-height: 1; }
+  .project-hero-eyebrow { font-size: 0.55rem; }
+  .project-hero-tagline { font-size: 0.95rem; }
+
+  /* 总览页标题 */
+  .listing-hero-title { font-size: clamp(2.5rem, 13vw, 4rem); }
+  .listing-hero { padding: 90px 4vw 40px; }
+
   .awards-grid { grid-template-columns: 1fr; }
   .project-nav { grid-template-columns: 1fr; }
+  .project-nav-link { padding: 24px 20px; }
+  .project-nav-title { font-size: 1.1rem; }
 }
