@@ -570,6 +570,27 @@
   }
   .project-card:hover .project-arrow { opacity: 1; transform: translate(0,0); }
 
+  /* Work category dividers */
+  .work-category-label {
+    grid-column: 1 / -1;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 0 8px;
+  }
+  .work-category-label:first-child { padding-top: 0; }
+  .work-category-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(200,146,42,0.25), transparent);
+  }
+
   /* project bg gradients */
   .pb-dreamer {
     background:
@@ -921,7 +942,7 @@
     <div class="scroll-line"></div>
     <span class="scroll-text">Scroll</span>
   </div>
-  <div class="hero-frame-count">2023 – 2026 &nbsp;·&nbsp; 10+ Works</div>
+  <div class="hero-frame-count">2023 – 2026 &nbsp;·&nbsp; Film &nbsp;·&nbsp; XR &amp; 3D</div>
 </section>
 
 <!-- FILMSTRIP -->
@@ -1022,6 +1043,9 @@
 
   <div class="projects-grid reveal">
 
+    <!-- Film category label -->
+    <div class="work-category-label">Film</div>
+
     <!-- Dreamer — WIDE -->
     <a class="project-card wide" href="film/dreamer.html">
       <div class="project-bg" style="background: linear-gradient(135deg, #1a1205 50%, #2d1f08 100%); background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/dreamer.jpg'); background-size:cover; background-position:center;"></div>
@@ -1109,6 +1133,61 @@
         <h3 class="project-title">Never Give Up</h3>
         <p class="project-award">Nikon Super Short Film Contest 2024/2025 — Top 20 Finalist &nbsp;·&nbsp; National Competition</p>
         <p class="project-desc">A 40 second story about a young man who dares to try, even without experience. Shot in 4K, entered into one of Malaysia's most competitive short film contests — and made it to the top 20.</p>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <!-- XR & 3D category label -->
+    <div class="work-category-label">XR &amp; 3D</div>
+
+    <!-- Kota Kayang VR — WIDE -->
+    <a class="project-card wide" href="xr/kota-kayang-vr.html">
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/xr/kota-kayang-vr.jpg'); background-size:cover; background-position:center; background-color:#060e10;"></div>
+      <div class="project-overlay"></div>
+      <div class="project-content">
+        <p class="project-tag">XR &amp; 3D &nbsp;·&nbsp; Unity &nbsp;·&nbsp; Blender &nbsp;·&nbsp; VR Experience</p>
+        <h3 class="project-title">Kota Kayang VR</h3>
+        <p class="project-award">Multiplayer historical VR — Kota Kayang Museum, Perlis</p>
+        <p class="project-desc">A multiplayer virtual reality experience reconstructing the historical Kota Kayang Museum. Developed in Unity with full 3D modelling in Blender — immersive cultural preservation through technology.</p>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <!-- Kota Kayang Interactive -->
+    <a class="project-card" href="xr/kota-kayang-interactive.html">
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/xr/kota-kayang-interactive.jpg'); background-size:cover; background-position:center; background-color:#080d10;"></div>
+      <div class="project-overlay"></div>
+      <div class="project-content">
+        <p class="project-tag">XR &amp; 3D &nbsp;·&nbsp; Unity &nbsp;·&nbsp; Interactive Environment</p>
+        <h3 class="project-title">Kota Kayang Interactive</h3>
+        <p class="project-award">Interactive Virtual Environment — Academic Project</p>
+        <p class="project-desc">An interactive virtual walkthrough of Kota Kayang, designed for desktop and web. Built in Unity with custom 3D assets and an exploration-first UX.</p>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <!-- Guardian of Malaysia -->
+    <a class="project-card" href="xr/guardian-of-malaysia.html">
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/xr/guardian.jpg'); background-size:cover; background-position:center; background-color:#06060f;"></div>
+      <div class="project-overlay"></div>
+      <div class="project-content">
+        <p class="project-tag">XR &amp; 3D &nbsp;·&nbsp; Unity &nbsp;·&nbsp; Game Development</p>
+        <h3 class="project-title">Guardian of Malaysia</h3>
+        <p class="project-award">Retro FPS — 3D Game Development Project</p>
+        <p class="project-desc">A retro first-person shooter set within Malaysian cultural mythology. Designed, built and scripted solo in Unity — from level design to gameplay mechanics.</p>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <!-- BridgesXR — WIDE -->
+    <a class="project-card wide" href="xr/bridgesxr.html">
+      <div class="project-bg" style="background-image: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.1) 40%, transparent 100%), url('images/xr/bridgesxr.jpg'); background-size:cover; background-position:center; background-color:#0a0614;"></div>
+      <div class="project-overlay"></div>
+      <div class="project-content">
+        <p class="project-tag">XR &amp; 3D &nbsp;·&nbsp; Hackathon &nbsp;·&nbsp; Augmented Reality</p>
+        <h3 class="project-title">BridgesXR</h3>
+        <p class="project-award">XR Hackathon — Award-Winning Prototype</p>
+        <p class="project-desc">An augmented reality application developed under hackathon conditions. Designed the full XR interaction model and pitched to a panel of industry judges — competing under real time pressure to deliver a working prototype.</p>
       </div>
       <span class="project-arrow">↗</span>
     </a>
