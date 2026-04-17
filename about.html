@@ -18,6 +18,15 @@
     overflow: hidden;
     background: linear-gradient(to bottom, var(--dark) 0%, var(--dark2) 100%);
   }
+  .about-hero-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .about-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.65) 60%, rgba(10,8,5,0.3) 100%);
+  }
   .about-hero-leak {
     position: absolute; top: -10%; right: -5%;
     width: 45%; height: 60%;
@@ -164,6 +173,8 @@
 
 <!-- HERO -->
 <div class="about-hero">
+  <div class="about-hero-bg" style="background-image: url('images/about-hero.jpg');"></div>
+  <div class="about-hero-overlay"></div>
   <div class="about-hero-leak"></div>
   <div class="about-hero-content">
     <p class="about-hero-eyebrow">Filmmaker &nbsp;·&nbsp; Colorist &nbsp;·&nbsp; Creative Technologist &nbsp;·&nbsp; Malaysia</p>
