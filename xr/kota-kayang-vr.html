@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kota Kayang — Multiplayer VR — Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="../film.html">Film</a></li>
+    <li><a href="../xr.html"  class='active'>XR &amp; 3D</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="project-hero">
+  <div class="project-hero-bg" style="background:linear-gradient(135deg,#0a0a1a 50%,#101030 100%); background-image: linear-gradient(to top,rgba(10,8,5,0.92) 0%,rgba(10,8,5,0.3) 60%,rgba(10,8,5,0.1) 100%),url('../images/xr/kota-kayang-vr.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <p class="project-hero-eyebrow">VR · Multiplayer <span>·</span> Sem 5 <span>·</span> Unity · Meta Quest 3 <span>·</span> Grade A</p>
+    <h1 class="project-hero-title">Kota Kayang Museum — Multiplayer VR</h1>
+    <p class="project-hero-tagline">Real-time cross-platform multiplayer VR edutourism — PC and Meta Quest 3 exploring the same museum simultaneously.</p>
+    <div class="project-award-badge">SDCRK3093 Virtual Reality &nbsp;·&nbsp; Grade A &nbsp;·&nbsp; Unity Netcode + Relay + Lobby</div>
+  </div>
+</div>
+
+<div class="project-meta">
+  <div class="meta-item"><div class="meta-label">Semester</div><div class="meta-value">Sem 5</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Unity · Blender · C#<small>Netcode · Relay · Lobby</small></div></div>
+  <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">PC + Meta Quest 3<small>Cross-platform multiplayer</small></div></div>
+  <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Co-Developer<small>50% of development</small></div></div>
+  <div class="meta-item"><div class="meta-label">Grade</div><div class="meta-value" style="color:var(--amber)">A</div></div>
+</div>
+
+<div class="project-body">
+  <div class="project-body-text reveal">
+    <h3>Overview</h3>
+    <p>A semester-long progressive development of a <strong>multiplayer VR edutourism experience</strong> centred on Museum Kota Kayang, Perlis. Multiple users simultaneously explore the virtual museum in real time, taking role-based positions as <em>Lead Researcher/Tour Guide</em> or <em>Assistant Researcher</em> across PC and Meta Quest 3 hardware.</p>
+    <p>The project ran from Assignment 1 (site research and CESSI framework analysis, including an <strong>on-site interview with museum staff</strong>) through to VR4 — the final multiplayer prototype.</p>
+  </div>
+  <div class="reveal">
+    <div class="project-embed">
+  <iframe src="https://www.youtube.com/embed/oqq9YOMfMZE" title="Kota Kayang VR — Demo" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="project-embed-label">Kota Kayang VR — Demo</p>
+    <a class="btn-ghost-sm" href="https://drive.google.com/file/d/1KoRT41eDsFfWEuxEdbXwhXBVSpp3ra09/view" target="_blank" rel="noopener">VR4 Multiplayer Demo ↗</a>
+    <a class="btn-ghost-sm" href="https://sites.google.com/view/kotakayangmuseumportfolio/home" target="_blank" rel="noopener">e-Portfolio ↗</a>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Technical Implementation</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Networking</strong></p>
+      <ul class="challenges-list">
+        <li>Unity Netcode for GameObjects (NGO) — client-host model for state synchronisation</li>
+        <li>Unity Relay &amp; Lobby — private study rooms with unique join codes, bypassing firewall restrictions</li>
+        <li>NetworkTransform — synchronises avatar position and head/hand rotation across PC and Quest 3</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>VR Optimisation</strong></p>
+      <ul class="challenges-list">
+        <li>Blender: low-poly assets optimised for standalone Meta Quest 3 performance</li>
+        <li>Universal Render Pipeline (URP): stable frame rates on mobile VR hardware</li>
+        <li>Careful polygon budgeting to maintain frame rate without sacrificing immersion</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="project-nav">
+  <a class="project-nav-link" href="kota-kayang-interactive.html">
+    <p class="project-nav-dir">← Previous</p>
+    <p class="project-nav-title">Kota Kayang Interactive</p>
+    <p class="project-nav-tag">Virtual Environment · Sem 5</p>
+  </a>
+  <a class="project-nav-link next" href="data-visualization.html">
+    <p class="project-nav-dir">Next →</p>
+    <p class="project-nav-title">Data Visualisation</p>
+    <p class="project-nav-tag">Power BI + AR · Sem 5</p>
+  </a>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

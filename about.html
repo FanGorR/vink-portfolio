@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .about-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 8vw 80px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, var(--dark) 0%, var(--dark2) 100%);
+  }
+  .about-hero-leak {
+    position: absolute; top: -10%; right: -5%;
+    width: 45%; height: 60%;
+    background: radial-gradient(ellipse, rgba(200,146,42,0.1) 0%, transparent 70%);
+    filter: blur(80px); pointer-events: none;
+  }
+  .about-hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .about-hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 24px;
+  }
+  .about-hero-name {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(3rem, 10vw, 8rem); line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em; color: var(--cream);
+    margin-bottom: 32px;
+  }
+  .about-hero-name .outline {
+    display: block; color: transparent;
+    -webkit-text-stroke: 1px rgba(232,224,208,0.25);
+  }
+  .about-hero-bio {
+    font-family: var(--font-serif); font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-mid);
+    line-height: 1.7; max-width: 640px;
+  }
+  .about-hero-bio strong { color: var(--cream); font-style: normal; font-weight: 400; }
+  .about-hero-bio em { color: var(--amber); font-style: italic; }
+
+  /* Stats strip */
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+    border-top: 1px solid rgba(200,146,42,0.08);
+    border-bottom: 1px solid rgba(200,146,42,0.08);
+    background: var(--dark2);
+  }
+  .stat-block {
+    padding: 40px 48px;
+    border-right: 1px solid rgba(200,146,42,0.08);
+  }
+  .stat-block:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 2.8rem; color: var(--cream); line-height: 1;
+  }
+  .stat-num span { color: var(--amber); font-size: 1.4rem; }
+  .stat-label {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-dim); margin-top: 8px;
+  }
+
+  /* Profile content section */
+  .profile-section {
+    padding: 100px 8vw;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start; background: var(--dark);
+  }
+  .profile-text p {
+    font-family: var(--font-serif); font-size: 1.1rem;
+    color: var(--text-mid); line-height: 1.8; margin-bottom: 20px;
+  }
+  .profile-text p strong { color: var(--cream); font-weight: 400; }
+  .profile-text p em { color: var(--amber); font-style: italic; }
+
+  /* Experience timeline */
+  .timeline { list-style: none; }
+  .timeline-item { padding: 28px 0; border-bottom: 1px solid rgba(200,146,42,0.08); }
+  .timeline-item:first-child { padding-top: 0; }
+  .timeline-role {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.05rem; color: var(--cream); margin-bottom: 4px;
+  }
+  .timeline-org {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 8px;
+  }
+  .timeline-period {
+    font-family: var(--font-mono); font-size: 0.58rem;
+    letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 10px;
+  }
+  .timeline-desc {
+    font-family: var(--font-serif); font-size: 0.95rem;
+    color: var(--text-mid); line-height: 1.6;
+  }
+
+  /* Education */
+  .edu-item { padding: 32px 0; border-bottom: 1px solid rgba(200,146,42,0.08); }
+  .edu-degree {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.1rem; color: var(--cream); margin-bottom: 4px;
+  }
+  .edu-school {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 8px;
+  }
+  .edu-detail {
+    font-family: var(--font-serif); font-size: 0.95rem;
+    color: var(--text-mid); line-height: 1.6;
+  }
+
+  /* Languages */
+  .lang-row {
+    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px;
+  }
+  .lang-tag {
+    font-family: var(--font-mono); font-size: 0.65rem;
+    letter-spacing: 0.1em; color: var(--text-mid);
+    border: 1px solid rgba(176,168,152,0.2); padding: 8px 16px;
+  }
+  .lang-tag strong { color: var(--amber); }
+
+  @media (max-width: 900px) {
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+    .stat-block { padding: 24px 20px; }
+    .profile-section { grid-template-columns: 1fr; gap: 48px; padding: 60px 5vw; }
+    .about-hero { padding: 110px 5vw 56px; }
+  }
+  @media (max-width: 480px) {
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="film.html">Film</a></li>
+    <li><a href="xr.html">XR &amp; 3D</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-leak"></div>
+  <div class="about-hero-content">
+    <p class="about-hero-eyebrow">Filmmaker &nbsp;·&nbsp; Colorist &nbsp;·&nbsp; Creative Technologist &nbsp;·&nbsp; Malaysia</p>
+    <h1 class="about-hero-name">
+      Kong<br>
+      <span class="outline">Jun Wei</span>
+    </h1>
+    <p class="about-hero-bio">
+      Independent filmmaker and colorist based in Malaysia, working at the intersection of <em>storytelling and technology</em>. From <strong>cinematic short films</strong> to <strong>multiplayer VR experiences</strong> — I build across disciplines, always carrying multiple roles at once.
+    </p>
+    <p class="about-hero-bio" style="margin-top:16px;">
+      In ten days, alone, I wrote, shot, directed, and edited <em>Dreamer</em> — a film that went on to win 2nd place at LOKA International Film Festival. That's how I work: with <strong>urgency</strong>, with <strong>intention</strong>, with everything I have.
+    </p>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip reveal">
+  <div class="stat-block">
+    <div class="stat-num">5<span>×</span></div>
+    <div class="stat-label">Dean's List</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-num">3<span>×</span></div>
+    <div class="stat-label">Award-winning Films</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-num">Top<span> 20</span></div>
+    <div class="stat-label">Nikon Global Contest</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-num">125<span>K</span></div>
+    <div class="stat-label">Views · KOL Collab</div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<section style="background: var(--dark2); padding: 100px 8vw;">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-number">01 — Recognition</p>
+      <h2 class="section-title">Awards</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div class="awards-grid reveal">
+    <div class="award-item" style="background-image: url('images/dreamer.jpg');">
+      <div class="award-place">2nd</div>
+      <div class="award-film">Dreamer</div>
+      <div class="award-fest">LOKA International Short Film Festival<br>Open Category · 2025</div>
+      <div class="award-extra">+ Best Original Story Nomination</div>
+    </div>
+    <div class="award-item" style="background-image: url('images/langit.jpg');">
+      <div class="award-place">3rd</div>
+      <div class="award-film">Langit Perlis</div>
+      <div class="award-fest">LOKA International Short Film Festival<br>IPT Category · 2025</div>
+      <div class="award-extra">Best Script &amp; Narrative Award · Best Cinematography Nomination</div>
+    </div>
+    <div class="award-item" style="background-image: url('images/nyawa.jpg');">
+      <div class="award-place">2nd</div>
+      <div class="award-film">Nyawa Berharga</div>
+      <div class="award-fest">Pertandingan Video Clip Keselamatan Jalan Raya<br>JPJ Kedah · 2024</div>
+      <div class="award-extra">National-level road safety film competition</div>
+    </div>
+    <div class="award-item" style="background-image: url('images/nevergiveup.jpg');">
+      <div class="award-place">Top 20</div>
+      <div class="award-film">Never Give Up</div>
+      <div class="award-fest">Nikon Super Short Film Contest<br>Global · 70,000+ entries · 180 countries</div>
+      <div class="award-extra">Global finalist — nationwide shortlist</div>
+    </div>
+    <div class="award-item" style="background-image: url('images/kol.jpg');">
+      <div class="award-place">125K</div>
+      <div class="award-film">KOL Collab · @sasisavage</div>
+      <div class="award-fest">Instagram Cinematic Video<br>Commercial Collaboration · 2024</div>
+      <div class="award-extra">125K views + 42.9K views across posts</div>
+    </div>
+    <div class="award-item" style="background-image: url('images/uum.jpg');">
+      <div class="award-place">5×</div>
+      <div class="award-film">Dean's List</div>
+      <div class="award-fest">Universiti Utara Malaysia<br>Semester 1, 2, 3, 4, 5 · 2023–2026</div>
+      <div class="award-extra">Bachelor of Creative Industry Management</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE + SKILLS -->
+<div class="profile-section">
+  <div class="profile-text reveal">
+    <div class="section-number" style="margin-bottom:16px;">02 — Profile</div>
+    <p>Currently finishing my degree in <strong>Creative Industry Management (Extended Reality)</strong> at Universiti Utara Malaysia — Dean's List for five consecutive semesters. Internship placement upcoming.</p>
+    <p>Alongside filmmaking, I developed <em>VinK Film PowerGrade Vol.1</em> — a complete cinematic colour grading system for DaVinci Resolve, researched and built entirely from native nodes. Built because I needed it. Released because others did too.</p>
+    <p>I work across disciplines: directing, cinematography, colour grading, Unity XR development, 3D modelling in Blender, UI/UX in Figma, and data visualisation in Power BI. The common thread isn't the tool — it's the intent to make something that <em>means something</em>.</p>
+  </div>
+  <div class="reveal">
+    <div class="section-number" style="margin-bottom:16px;">03 — Skills</div>
+    <div class="skill-category">
+      <div class="skill-cat-label">Filmmaking</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Directing</span>
+        <span class="skill-tag">Cinematography</span>
+        <span class="skill-tag">Scriptwriting</span>
+        <span class="skill-tag">Storyboarding</span>
+        <span class="skill-tag">Lighting</span>
+        <span class="skill-tag">Sound Design</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-label">Post-Production</div>
+      <div class="skill-tags">
+        <span class="skill-tag">DaVinci Resolve</span>
+        <span class="skill-tag">Colour Grading</span>
+        <span class="skill-tag">CST Pipeline</span>
+        <span class="skill-tag">Film Emulation</span>
+        <span class="skill-tag">Adobe Lightroom</span>
+        <span class="skill-tag">Adobe Illustrator</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-label">XR & Development</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Blender</span>
+        <span class="skill-tag">AR Foundation</span>
+        <span class="skill-tag">Meta Quest 3 (VR)</span>
+        <span class="skill-tag">Multiplayer Netcode</span>
+        <span class="skill-tag">XR Interaction Toolkit</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-label">Design & Data</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">DAX / Power Query</span>
+        <span class="skill-tag">UI/UX Prototyping</span>
+        <span class="skill-tag">User Research</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-label">Cameras</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Lumix S5</span>
+        <span class="skill-tag">Nikon D5100</span>
+        <span class="skill-tag">Log Colour Science</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section style="background: var(--dark2); padding: 100px 8vw;">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-number">04 — Experience</p>
+      <h2 class="section-title">Roles</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div style="max-width: 860px;">
+    <ul class="timeline reveal">
+      <li class="timeline-item">
+        <div class="timeline-role">Freelance Filmmaker &amp; Video Editor</div>
+        <div class="timeline-org">Self-employed</div>
+        <div class="timeline-period">2023 – Present</div>
+        <div class="timeline-desc">Directed, shot and edited award-winning productions including Dreamer (LOKA 2nd Place) and Langit Perlis (LOKA 3rd Place + Best Script &amp; Narrative). Collaborated with KOL @sasisavage, producing cinematic content reaching 125K and 42.9K Instagram views. Developed VinK Film PowerGrade Vol.1 — sold on Gumroad.</div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-role">Graphic Designer · Videographer · Video Editor</div>
+        <div class="timeline-org">SPF UUM Publicity Team &amp; Suarasiswa UUM</div>
+        <div class="timeline-period">Oct 2023 – Mar 2024 · University Level</div>
+        <div class="timeline-desc">Sole content creator for the 2023/24 UUM student elections — election videos reached 12.2K and 11.2K views. Produced the organisation's introductory promotional film and designed event posters.</div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-role">Timbalan Exco Multimedia (Deputy Multimedia Executive)</div>
+        <div class="timeline-org">UUM Photography Club</div>
+        <div class="timeline-period">2023 – 2024 · University Level</div>
+        <div class="timeline-desc">Produced the club's corporate video and seasonal social media content. Represented the club at UUM Hope Day at the promotional booth.</div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-role">Committee Member (Ahli Jawatankuasa)</div>
+        <div class="timeline-org">Festival Apresiasi Seni 2024 (FEAS) — Tayangan Malam FEAS 24 · Teater FEAS 24</div>
+        <div class="timeline-period">Jul 2024 · University Level</div>
+        <div class="timeline-desc">Served on the organising committee for the Faculty of Creative Arts & Industry's annual arts appreciation festival, contributing to Tayangan Malam FEAS 24 (screening night) and Teater FEAS 24 (theatre production).</div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-role">Committee Member (Ahli Jawatankuasa)</div>
+        <div class="timeline-org">SULAM — Bakat Puitis 2025–2026</div>
+        <div class="timeline-period">Nov 2025 · State Level</div>
+        <div class="timeline-desc">Contributed to the organising committee for a state-level Service-Learning Malaysia initiative connecting university talent with community engagement programmes.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section style="background: var(--dark); padding: 100px 8vw;">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-number">05 — Education</p>
+      <h2 class="section-title">Academic</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div style="max-width: 760px;" class="reveal">
+    <div class="edu-item">
+      <div class="edu-degree">Bachelor of Creative Industry Management (Hons)</div>
+      <div class="edu-school">Universiti Utara Malaysia &nbsp;·&nbsp; 2023 – 2027 (Expected)</div>
+      <div class="edu-detail">Major: Extended Reality (AR/XR) &nbsp;·&nbsp; <strong style="color:var(--amber)">Dean's List — 5 Consecutive Semesters</strong><br>
+      Relevant coursework: Introduction to Cinematography — Final project Return Home awarded A+<br>
+      Currently Semester 6 — internship placement upcoming.</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">Sijil Tinggi Persekolahan Malaysia (STPM)</div>
+      <div class="edu-school">SMK Sultan Yussuf &nbsp;·&nbsp; 2021 – 2023</div>
+      <div class="edu-detail">CGPA 3.17 &nbsp;·&nbsp; Subjects: General Studies, Business, Economics, Visual Arts</div>
+    </div>
+    <div class="edu-item" style="border-bottom:none;">
+      <div class="edu-degree">Sijil Pelajaran Malaysia (SPM)</div>
+      <div class="edu-school">SMK Pusing &nbsp;·&nbsp; 2015 – 2020</div>
+      <div class="edu-detail">Grade: 2A, 1B+, 4C+, 2D</div>
+    </div>
+
+    <div class="lang-row" style="margin-top:48px;">
+      <div style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);width:100%;margin-bottom:4px;">Languages</div>
+      <span class="lang-tag"><strong>Mandarin</strong> — Native</span>
+      <span class="lang-tag"><strong>Cantonese</strong> — Native</span>
+      <span class="lang-tag"><strong>Hakka</strong> — Native</span>
+      <span class="lang-tag"><strong>English</strong> — Fluent</span>
+      <span class="lang-tag"><strong>Malay</strong> — Fluent</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section style="background: linear-gradient(to bottom, var(--dark2) 0%, var(--dark) 100%); padding: 100px 8vw;">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-number">06 — Contact</p>
+      <h2 class="section-title">Let's Talk</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div style="max-width:520px;" class="reveal">
+    <a class="contact-link-item" href="mailto:wenshu0925@outlook.com">
+      <div><div class="contact-link-label">Email</div><div class="contact-link-value">wenshu0925@outlook.com</div></div>
+      <span class="contact-link-arrow">↗</span>
+    </a>
+    <a class="contact-link-item" href="https://www.instagram.com/vincentkong_" target="_blank" rel="noopener">
+      <div><div class="contact-link-label">Instagram</div><div class="contact-link-value">@vincentkong_</div></div>
+      <span class="contact-link-arrow">↗</span>
+    </a>
+    <a class="contact-link-item" href="https://youtube.com/@vincentkong_" target="_blank" rel="noopener">
+      <div><div class="contact-link-label">YouTube</div><div class="contact-link-value">@vincentkong_</div></div>
+      <span class="contact-link-arrow">↗</span>
+    </a>
+    <a class="contact-link-item" href="https://www.linkedin.com/in/vincent-kong-jun-wei-71a1043b3" target="_blank" rel="noopener">
+      <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">Vincent Kong Jun Wei</div></div>
+      <span class="contact-link-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
