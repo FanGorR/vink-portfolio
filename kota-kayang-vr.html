@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BridgesXR — VR Sign Language App — Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="../film.html">Film</a></li>
+    <li><a href="../xr.html"  class='active'>XR &amp; 3D</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="project-hero">
+  <div class="project-hero-bg" style="background:linear-gradient(135deg,#080510 50%,#100a18 100%); background-image: linear-gradient(to top,rgba(10,8,5,0.92) 0%,rgba(10,8,5,0.3) 60%,rgba(10,8,5,0.1) 100%),url('../images/xr/bridgesxr.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <p class="project-hero-eyebrow">VR Hackathon <span>·</span> 72 Hours <span>·</span> XR Jam FuturScape 2025 <span>·</span> Team Leader</p>
+    <h1 class="project-hero-title">BridgesXR</h1>
+    <p class="project-hero-tagline">A VR app that teaches sign language across cultures — built in 72 hours, without a single AI API, without controllers.</p>
+    <div class="project-award-badge">XR Jam: FuturScape 2025 &nbsp;·&nbsp; October 2025 &nbsp;·&nbsp; On-site 72-Hour Hackathon</div>
+  </div>
+</div>
+
+<div class="project-meta">
+  <div class="meta-item"><div class="meta-label">Event</div><div class="meta-value">XR Jam FuturScape<small>October 2025</small></div></div>
+  <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-value">72 Hours<small>On-site continuous</small></div></div>
+  <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Team Leader<small>Lead Developer</small></div></div>
+  <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">4 Members<small>1 dev, 1 co-dev, 2 designers</small></div></div>
+  <div class="meta-item"><div class="meta-label">Languages</div><div class="meta-value">BIM · ASL · BSL<small>Multi-language sign</small></div></div>
+</div>
+
+<div class="project-body">
+  <div class="project-body-text reveal">
+    <h3>The Problem</h3>
+    <p>With people experiencing disabling hearing loss projected to reach <strong>711 million by 2050</strong>, existing sign language learning tools remain flat, non-immersive, and limited to a single country's sign language per app.</p>
+    <p>BridgesXR addresses this by combining <em>immersive VR learning</em> with <strong>cross-cultural sign language support</strong> — covering Malaysian Sign Language (BIM), American Sign Language (ASL), and British Sign Language (BSL) — with cultural localisation connecting sign vocabulary to local context.</p>
+  </div>
+  <div class="reveal">
+    <div class="project-embed">
+  <iframe src="https://www.youtube.com/embed/i1VBUiUF5o0" title="BridgesXR — Pitch Video" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="project-embed-label">BridgesXR — Pitch Video</p>
+    <a class="btn-ghost-sm" href="https://youtu.be/uIZo35uK-t0" target="_blank" rel="noopener">Demo Video ↗</a>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">What I Built in 72 Hours</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Unity Development</strong></p>
+      <ul class="challenges-list">
+        <li>Scene setup, interaction logic, gesture tracking system, UI flow, and game loop</li>
+        <li><strong>Custom gesture recording and matching system</strong> — recorded hand joint node data, matched against stored patterns. No external AI APIs. No cost.</li>
+        <li>Hand tracking via XR Interaction Toolkit — controller-free, hands-only interaction</li>
+        <li>1-to-1 virtual classroom with gesture-based communication and auto-translation</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Team & Product</strong></p>
+      <ul class="challenges-list">
+        <li>Led a 4-person team through 72 hours of continuous development</li>
+        <li>Project direction, task delegation, and all pitching and presentation to judges</li>
+        <li>Gamified learning structure with tiered progression (Tier 1, Tier 2)</li>
+        <li>Multi-language support: BIM, ASL, BSL in one app with cultural localisation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="project-nav">
+  <a class="project-nav-link" href="data-visualization.html">
+    <p class="project-nav-dir">← Previous</p>
+    <p class="project-nav-title">Data Visualisation</p>
+    <p class="project-nav-tag">Power BI + AR · Sem 5</p>
+  </a>
+  <a class="project-nav-link next" href="personal-practice.html">
+    <p class="project-nav-dir">Next →</p>
+    <p class="project-nav-title">Personal Practice</p>
+    <p class="project-nav-tag">Blender & Unity AR · Independent</p>
+  </a>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
