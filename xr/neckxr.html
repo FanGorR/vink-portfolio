@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeckXR — Cervical Rehabilitation Exergame — Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="../film.html">Film</a></li>
+    <li><a href="../xr.html" class='active'>XR &amp; 3D</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-hero">
+  <div class="project-hero-bg" style="background:linear-gradient(135deg,#050f18 50%,#0a1825 100%); background-image: linear-gradient(to top,rgba(10,8,5,0.92) 0%,rgba(10,8,5,0.3) 60%,rgba(10,8,5,0.1) 100%),url('../images/xr/neckxr.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <p class="project-hero-eyebrow">Final Year Project <span>·</span> Sem 6 <span>·</span> Figma · Unity · C# · MediaPipe <span>·</span> In Progress</p>
+    <h1 class="project-hero-title">NeckXR</h1>
+    <p class="project-hero-tagline">An AR-based exergame for cervical rehabilitation — real-time head tracking, gamified training, and clinically informed feedback.</p>
+    <div class="project-award-badge">SDCZK2993 / SDCZK3993 Academic Project &nbsp;·&nbsp; Final Year Project &nbsp;·&nbsp; Individual</div>
+  </div>
+</div>
+
+<div class="project-meta">
+  <div class="meta-item"><div class="meta-label">Semester</div><div class="meta-value">Sem 6<small>In Progress</small></div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Unity<small>MediaPipe · Supabase · C#</small></div></div>
+  <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Windows PC<small>Standalone</small></div></div>
+  <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Individual<small>Solo end-to-end</small></div></div>
+  <div class="meta-item"><div class="meta-label">Research</div><div class="meta-value">63 Respondents<small>+ Physiotherapist Interview</small></div></div>
+</div>
+
+<div class="project-body">
+  <div class="project-body-text reveal">
+    <h3>Overview</h3>
+    <p>NeckXR is an AR-based exergame designed to support safe, accessible neck rehabilitation and preventive training for university students and working adults. Using real-time head and posture tracking via <strong>MediaPipe</strong>, the application guides users through clinically informed neck exercises with immediate visual and audio feedback, gamified scoring, and session progress tracking.</p>
+    <p>The project addresses a documented gap: up to <em>50% of patients fail to complete home rehabilitation programmes</em> due to lack of motivation, poor technique guidance, and absence of real-time correction. NeckXR responds with a feedback-driven system that supplements — but does not replace — professional physiotherapy.</p>
+  </div>
+  <div class="reveal">
+    <div class="project-embed">
+      <iframe src="https://www.youtube.com/embed/Ws5RwUcfIzA" title="NeckXR — Demo" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="project-embed-label">NeckXR — Demo Video</p>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Research Foundation</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Online Survey — 63 Respondents</strong></p>
+      <ul class="challenges-list">
+        <li><strong>76.3%</strong> experience neck discomfort regularly</li>
+        <li><strong>73%</strong> prioritised real-time posture correction as the most important feature</li>
+        <li><strong>73%</strong> preferred hybrid interaction (head rotation + hand gesture)</li>
+        <li><strong>71.4%</strong> preferred sessions under 5 minutes per day</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Expert Interview</strong></p>
+      <ul class="challenges-list">
+        <li>Puan Siti Hajar Binti Mohd Dzohir — physiotherapist, 16 years clinical experience, Director of One Stop Physiotherapy Centre, Changlun, Kedah</li>
+        <li>Key insights: biofeedback importance, safe movement thresholds, compensatory movement detection, and structured calibration before training</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">UX Design</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Information Architecture</strong></p>
+      <ul class="challenges-list">
+        <li>7 primary modules: Authentication, Medical Disclaimer, Main Dashboard, Calibration System, Training Session, Progress, Settings</li>
+        <li>Hub-based navigation with the Main Dashboard as the central access point — minimising cognitive load for users with varying technical familiarity</li>
+      </ul>
+      <p style="margin-top:20px;"><strong>User Flow</strong></p>
+      <ul class="challenges-list">
+        <li>Safety-first gatekeeping: users must accept the Medical Disclaimer and complete calibration before accessing any training features</li>
+        <li>Training flow supports pause, resume, and exit controls to maintain user autonomy during sessions</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Wireframes — 25 Screens</strong></p>
+      <ul class="challenges-list">
+        <li>Splash · Sign In · Sign Up · Forgot Password · Forgot Password (Email Sent)</li>
+        <li>Medical Disclaimer · Dashboard (pre-calibration)</li>
+        <li>Calibration Setup · Calibration Steps ×4 (Flexion, Extension, Left, Right) · Calibration Processing · Calibration Complete</li>
+        <li>Dashboard (post-calibration) · Choose Training · Active Training Session · Training Pause Menu · Training Complete</li>
+        <li>Progress and History · Settings · Edit Profile · Edit Profile (Success) · Change Password · Change Password (Success)</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:32px;">
+    <p style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">Figma Wireframe</p>
+    <a class="btn-external" href="https://www.figma.com/design/n8K7fWhNmlWesgbsWVzA09/NeckXR-Wireframe?node-id=0-1&t=4v8oxw4Df6uzdynO-1" target="_blank" rel="noopener">Open Figma Wireframe ↗</a>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Key Design Decisions</p>
+  <ul class="challenges-list">
+    <li><strong>Mandatory calibration</strong> before every training session — informed by physiotherapist input on personalised range-of-motion baseline before exercise</li>
+    <li><strong>Movement thresholds and compensatory detection</strong> built into the training screen — prevents unsafe shoulder elevation, trunk lean, or head thrust</li>
+    <li><strong>Short session design</strong> (5, 10, 15 minutes across Beginner, Intermediate, Advanced) — directly responding to the survey finding that 71.4% of users prefer under 5 minutes per day</li>
+    <li><strong>Medical disclaimer with explicit checkbox</strong> — reinforces responsible usage and clinical safety</li>
+    <li><strong>Real-time feedback overlay</strong> during active training — rep counter, accuracy percentage, exercise name, and pause control visible simultaneously</li>
+  </ul>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Technical Implementation (~50% Complete)</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Tracking & Calibration</strong></p>
+      <ul class="challenges-list">
+        <li>WebCamController.cs — device enumeration, WebCamTexture start/stop, vertical flip correction</li>
+        <li>MediaPipe Unity Plugin v0.16.3 — PoseLandmarker at ~30fps, 33-point pose data via EventBus</li>
+        <li>HeadPoseEstimator.cs — real-time Yaw, Pitch, Roll from landmark offsets; LandmarkSmoother low-pass filter (α = 0.35)</li>
+        <li>CalibrationManager.cs — 4-step guided calibration (Forward Flexion, Backward Extension, Left/Right Rotation); 60-frame neutral posture baseline</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Training & Scoring</strong></p>
+      <ul class="challenges-list">
+        <li>RepetitionDetector.cs — state machine (Idle → MovingToTarget → HoldingPeak → ReturningToNeutral); 0.3s minimum hold to prevent false positives</li>
+        <li>ExerciseRunner.cs + TrainingSession.cs — 4-exercise sequence; Beginner, Intermediate, Advanced difficulty</li>
+        <li>CompensatoryDetector.cs — shoulder elevation, trunk lean, head forward thrust via consecutive-frame threshold (8 frames)</li>
+        <li>ScoreCalculator.cs — score = completion ratio × compensatory penalty × 1000; saved to Supabase training_sessions</li>
+        <li>TrainingDataService.cs — Supabase fetch ordered by created_at DESC; local cache for offline display</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--font-serif);color:var(--text-mid);font-size:1rem;">Remaining phases: performance optimisation, IL2CPP Windows build packaging, and user testing.</p>
+</div>
+
+<div class="project-nav">
+  <a class="project-nav-link" href="../xr.html">
+    <p class="project-nav-dir">← Back</p>
+    <p class="project-nav-title">XR &amp; 3D Work</p>
+    <p class="project-nav-tag">All Projects</p>
+  </a>
+  <a class="project-nav-link next" href="kota-kayang-vr.html">
+    <p class="project-nav-dir">Next →</p>
+    <p class="project-nav-title">Kota Kayang Museum VR</p>
+    <p class="project-nav-tag">Multiplayer VR · Unity · Sem 5</p>
+  </a>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

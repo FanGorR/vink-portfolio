@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Time — Mobile Quiz App UI/UX — Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="../film.html">Film</a></li>
+    <li><a href="../xr.html" class='active'>XR &amp; 3D</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-hero">
+  <div class="project-hero-bg" style="background:linear-gradient(135deg,#0a0515 50%,#0f0820 100%); background-image: linear-gradient(to top,rgba(10,8,5,0.92) 0%,rgba(10,8,5,0.3) 60%,rgba(10,8,5,0.1) 100%),url('../images/xr/quiztime.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <p class="project-hero-eyebrow">UI/UX Design <span>·</span> Sem 4 <span>·</span> Figma <span>·</span> Grade A</p>
+    <h1 class="project-hero-title">Quiz Time</h1>
+    <p class="project-hero-tagline">A mobile quiz app designed for students and teachers — built on persona-based research and a full Figma design system.</p>
+    <div class="project-award-badge">SDCIK2103 User Experience Design &nbsp;·&nbsp; Grade A &nbsp;·&nbsp; UI/UX Lead</div>
+  </div>
+</div>
+
+<div class="project-meta">
+  <div class="meta-item"><div class="meta-label">Semester</div><div class="meta-value">Sem 4</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma</div></div>
+  <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">UI/UX Lead<small>~50% Figma work</small></div></div>
+  <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">5 Members<small>Group 2</small></div></div>
+  <div class="meta-item"><div class="meta-label">Grade</div><div class="meta-value" style="color:var(--amber)">A</div></div>
+</div>
+
+<div class="project-body">
+  <div class="project-body-text reveal">
+    <h3>Overview</h3>
+    <p>Quiz Time is a mobile quiz application designed for students and teachers, targeting three key gaps in existing platforms: <strong>lack of personalised learning paths, low interactivity during question-answering, and no ability to review previously answered questions</strong>.</p>
+    <p>As UI/UX lead within the 5-person team, I drove the Figma work — including the design system, component library, high-fidelity wireframes, and overall visual direction. Approximately half of the Figma deliverables were led and executed by me, with the remainder produced collaboratively under my design direction.</p>
+  </div>
+  <div class="reveal">
+    <p style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">Figma Design File</p>
+    <a class="btn-external" href="https://www.figma.com/design/ZBTmZOBFXvOG1V1EWZSBiS/Group-2-wireframe-quiz-app?node-id=0-1&t=7fVyMe8NDDX4s8Y2-1" target="_blank" rel="noopener">View Design File ↗</a>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Research &amp; Discovery</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Competitor Analysis</strong></p>
+      <ul class="challenges-list">
+        <li>Kahoot!, Quizizz, and Duolingo analysed for strengths and gaps</li>
+        <li>Key gaps identified: no personalised learning paths, low interactivity, no question review functionality</li>
+      </ul>
+      <p style="margin-top:20px;"><strong>User Personas</strong></p>
+      <ul class="challenges-list">
+        <li><strong>Dr. Sofia</strong> (teacher, 32) — needs efficient quiz creation tools and class progress tracking</li>
+        <li><strong>Desmond</strong> (student, 19) — needs quick access to quiz content, immediate feedback, and retry functionality</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Key Research Findings</strong></p>
+      <ul class="challenges-list">
+        <li>Users prioritised minimal-distraction interfaces</li>
+        <li>Quick access to quiz content within two taps</li>
+        <li>Immediate right/wrong feedback during sessions</li>
+        <li>Subject filtering and score visualisation</li>
+        <li>Retry functionality for missed questions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Design System</p>
+  <div class="contribution-grid">
+    <div>
+      <p><strong>Colour Palette</strong></p>
+      <ul class="challenges-list">
+        <li>Primary: <span style="color:#7E5EBC;">#7E5EBC</span></li>
+        <li>Secondary: <span style="color:#D2EEFF;">#D2EEFF</span></li>
+        <li>Correct feedback: <span style="color:#7DEE78;">#7DEE78</span></li>
+        <li>Wrong feedback: <span style="color:#FE7373;">#FE7373</span></li>
+        <li>Background: #FFFFFF · Text: #000000</li>
+      </ul>
+      <p style="margin-top:20px;"><strong>Typography</strong></p>
+      <ul class="challenges-list">
+        <li>Inter typeface across 17 defined type styles — from 12px captions to 64px hero titles</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Component Library</strong></p>
+      <ul class="challenges-list">
+        <li>Buttons (primary, secondary, ghost)</li>
+        <li>Navigation Bar</li>
+        <li>Quiz Panel (A–D answer blocks with live feedback states)</li>
+        <li>Progress Bar</li>
+        <li>Icon Card</li>
+        <li>Text Field</li>
+        <li>Leaderboard Block</li>
+        <li>Achievements Block</li>
+      </ul>
+      <p style="margin-top:8px;font-family:var(--font-serif);color:var(--text-mid);font-size:0.9rem;">All components designed for modularity and reuse across screens.</p>
+    </div>
+  </div>
+</div>
+
+<div class="project-section reveal">
+  <p class="project-section-title">Screens Covered</p>
+  <ul class="challenges-list">
+    <li><strong>Onboarding</strong> — Login · Sign Up · Create Account</li>
+    <li><strong>Home</strong> — subject categories, recent activity, quick-start access within two taps</li>
+    <li><strong>Quiz Selection</strong> — filter by subject, difficulty, and topic</li>
+    <li><strong>Quiz Interface</strong> — multiple choice A–D, live score counter, immediate right/wrong feedback colour coding</li>
+    <li><strong>Results</strong> — score summary, correct/wrong breakdown, retake option, leaderboard access</li>
+    <li><strong>Profile</strong> — avatar, achievements gallery, quiz history</li>
+    <li><strong>Leaderboard</strong> — ranked by score across sessions</li>
+    <li><strong>Settings</strong> — notification preferences, account management</li>
+  </ul>
+</div>
+
+<div class="project-nav">
+  <a class="project-nav-link" href="data-visualization.html">
+    <p class="project-nav-dir">← Previous</p>
+    <p class="project-nav-title">Interactive Data Visualisation</p>
+    <p class="project-nav-tag">Power BI · AR · Sem 5</p>
+  </a>
+  <a class="project-nav-link next" href="guardian-of-malaysia.html">
+    <p class="project-nav-dir">Next →</p>
+    <p class="project-nav-title">Guardian of Malaysia</p>
+    <p class="project-nav-tag">Retro FPS · Unity · Sem 4</p>
+  </a>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
