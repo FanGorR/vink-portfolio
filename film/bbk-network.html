@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBK Network Internship — Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  /* ── Reel grid ── */
+  .reel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+  .reel-card {
+    background: var(--dark);
+    padding: 36px 32px 32px;
+    border: 1px solid rgba(200,146,42,0.06);
+    display: flex; flex-direction: column;
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+  }
+  .reel-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0;
+    width: 3px; height: 0;
+    background: var(--amber);
+    transition: height 0.35s ease;
+  }
+  .reel-card:hover { background: rgba(200,146,42,0.04); border-color: rgba(200,146,42,0.2); }
+  .reel-card:hover::before { height: 100%; }
+  .reel-number {
+    font-family: var(--font-mono); font-size: 0.55rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(200,146,42,0.4); margin-bottom: 8px;
+  }
+  .reel-topic {
+    font-family: var(--font-mono); font-size: 0.6rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 16px;
+  }
+  .reel-title {
+    font-family: var(--font-serif); font-size: 1.1rem;
+    color: var(--cream); line-height: 1.45;
+    margin: 0 0 12px; font-weight: 400;
+  }
+  .reel-en {
+    font-family: var(--font-mono); font-size: 0.63rem;
+    color: var(--text-dim); letter-spacing: 0.04em;
+    line-height: 1.6; flex: 1; margin-bottom: 28px;
+  }
+  .reel-link {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+  }
+  .reel-link:hover { gap: 10px; }
+
+  /* ── Single-column override (no video embed on this page) ── */
+  .project-body {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-bottom: 48px;
+  }
+  .project-body-text { max-width: 740px; }
+
+  /* ── Tools strip ── */
+  .tools-strip {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    padding: 0 8vw 48px;
+  }
+  .tool-pill {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(200,146,42,0.25);
+    padding: 7px 16px;
+    background: rgba(200,146,42,0.04);
+  }
+
+  /* ── Behind the Scenes gallery ── */
+  .bbk-gallery {
+    padding: 64px 8vw 0;
+    background: var(--dark);
+  }
+  .bbk-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 32px;
+  }
+  .bbk-gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: var(--dark2);
+    cursor: default;
+  }
+  .bbk-gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.88) saturate(0.85);
+  }
+  .bbk-gallery-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1) saturate(1);
+  }
+  .bbk-gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 14px;
+    background: linear-gradient(to top, rgba(10,8,5,0.82) 0%, transparent 100%);
+    font-family: var(--font-mono); font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-dim);
+    opacity: 0; transform: translateY(4px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .bbk-gallery-item:hover .bbk-gallery-caption {
+    opacity: 1; transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    .bbk-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .bbk-gallery { padding: 48px 5vw 0; }
+    .bbk-gallery-grid { grid-template-columns: 1fr; gap: 2px; }
+    .reel-grid {
+      grid-template-columns: 1fr;
+      padding: 0 5vw 64px !important;
+      margin-top: 36px;
+    }
+    .reel-card { padding: 28px 22px 24px; }
+    .tools-strip { padding: 32px 5vw 0; gap: 8px; }
+    .tool-pill { font-size: 0.58rem; padding: 6px 12px; }
+  }
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="../film.html" class="active">Film</a></li>
+    <li><a href="../xr.html">XR &amp; 3D</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-hero">
+  <div class="project-hero-bg" style="background:linear-gradient(135deg,#080c0a 50%,#111a10 100%); background-image:linear-gradient(to top,rgba(10,8,5,0.92) 0%,rgba(10,8,5,0.3) 60%,rgba(10,8,5,0.1) 100%),url('../images/bbk-network.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <p class="project-hero-eyebrow">Internship <span>·</span> Aug – Nov 2026 <span>·</span> Video Editor</p>
+    <h1 class="project-hero-title">BBK Network</h1>
+    <p class="project-hero-tagline">News-style short videos on Malaysian society, economics, football history, and workplace culture — independently edited and approved for official social media.</p>
+  </div>
+</div>
+
+<div class="project-meta">
+  <div class="meta-item"><div class="meta-label">Period</div><div class="meta-value">Aug – Nov 2026<small>3 Months</small></div></div>
+  <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Video Editor<small>Content Creator</small></div></div>
+  <div class="meta-item"><div class="meta-label">Output</div><div class="meta-value">11 Videos<small>All Approved &amp; Published</small></div></div>
+  <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Instagram<small>Short-form Reels</small></div></div>
+</div>
+
+<div class="project-body">
+  <div class="project-body-text reveal">
+    <h3>Overview</h3>
+    <p>During my internship at BBK Network, I independently researched, edited, and motion-designed 11 short-form news videos for the company's official social media channels. Each piece was produced end-to-end — from raw footage assembly through motion graphics and colour grade — and all were approved for publication.</p>
+    <p>Topics spanned Malaysian football's golden age and the match-fixing scandal that unravelled it, civic rights in a multicultural society, F&B economics behind banana leaf rice restaurants, gambling policy and tax revenue, and workplace culture. The series demonstrates a consistent editorial voice adapted across a wide range of subject matter.</p>
+  </div>
+</div>
+
+<div class="tools-strip reveal">
+  <span class="tool-pill">DaVinci Resolve</span>
+  <span class="tool-pill">Adobe Premiere Pro</span>
+  <span class="tool-pill">After Effects</span>
+  <span class="tool-pill">Motion Graphics</span>
+  <span class="tool-pill">Colour Grade</span>
+  <span class="tool-pill">Short-form Editing</span>
+</div>
+
+<!-- BEHIND THE SCENES GALLERY -->
+<div class="bbk-gallery">
+  <div class="project-section reveal" style="padding:0; margin-bottom:0;">
+    <p class="project-section-title">Behind the Scenes</p>
+  </div>
+  <div class="bbk-gallery-grid">
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-01.jpg" alt="BBK Network edit suite" loading="lazy">
+      <div class="bbk-gallery-caption">Edit Suite</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-02.jpg" alt="After Effects timeline" loading="lazy">
+      <div class="bbk-gallery-caption">After Effects</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-03.jpg" alt="DaVinci Resolve colour grade" loading="lazy">
+      <div class="bbk-gallery-caption">DaVinci Resolve</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-04.jpg" alt="Premiere Pro timeline" loading="lazy">
+      <div class="bbk-gallery-caption">Premiere Pro</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-05.jpg" alt="BBK Network office" loading="lazy">
+      <div class="bbk-gallery-caption">Office</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-06.jpg" alt="Motion graphics work" loading="lazy">
+      <div class="bbk-gallery-caption">Motion Graphics</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-07.jpg" alt="Behind the edit" loading="lazy">
+      <div class="bbk-gallery-caption">Behind the Edit</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-08.jpg" alt="Published reel screenshot" loading="lazy">
+      <div class="bbk-gallery-caption">Published Reel</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-09.jpg" alt="Workflow overview" loading="lazy">
+      <div class="bbk-gallery-caption">Workflow</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-10.jpg" alt="Team and workspace" loading="lazy">
+      <div class="bbk-gallery-caption">Workspace</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-11.jpg" alt="BBK Network internship" loading="lazy">
+      <div class="bbk-gallery-caption">Internship</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-12.jpg" alt="BBK Network internship" loading="lazy">
+      <div class="bbk-gallery-caption">Internship</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-13.jpg" alt="BBK Network internship" loading="lazy">
+      <div class="bbk-gallery-caption">Internship</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-14.jpg" alt="BBK Network internship" loading="lazy">
+      <div class="bbk-gallery-caption">Internship</div>
+    </div>
+
+    <div class="bbk-gallery-item reveal">
+      <img src="../images/bbk/bbk-15.jpg" alt="BBK Network internship" loading="lazy">
+      <div class="bbk-gallery-caption">Internship</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="project-section reveal" style="padding-top:64px; padding-bottom:0;">
+  <p class="project-section-title">Published Works</p>
+</div>
+
+<div class="reel-grid" style="padding: 0 8vw 100px; margin-top: 32px;">
+
+  <div class="reel-card reveal">
+    <div class="reel-number">01 / 10</div>
+    <div class="reel-topic">Malaysian Football · Series 1/3</div>
+    <h3 class="reel-title">你聽說過馬來西亞的足球光輝歲月嗎？</h3>
+    <p class="reel-en">Did you know Malaysia had a golden age of football? A look back at the nation's forgotten glory days on the pitch.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DbnQ_xkyj2-/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">02 / 10</div>
+    <div class="reel-topic">Match Fixing · Series 2/3</div>
+    <h3 class="reel-title">赌球赌到70%足球比赛被操控？</h3>
+    <p class="reel-en">Was 70% of football fixed? Breaking down the scale of match-fixing that plagued Malaysian football.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DbsZeV5yoQJ/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">03 / 10</div>
+    <div class="reel-topic">Match Fixing · Series 3/3</div>
+    <h3 class="reel-title">你知道"踢假球"是怎么运作的吗？</h3>
+    <p class="reel-en">How does match fixing actually work? An explainer on the mechanics behind football's darkest operation.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/Db-lvXCMYOM/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">04 / 10</div>
+    <div class="reel-topic">Society &amp; Rights</div>
+    <h3 class="reel-title">要如何在多元的社会捍卫权益呢？</h3>
+    <p class="reel-en">How do we defend our rights in a diverse society? Exploring civic advocacy in Malaysia's multicultural landscape.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DcA5E5VMm-U/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">05 / 10</div>
+    <div class="reel-topic">F&amp;B Economics · Series 1/2</div>
+    <h3 class="reel-title">Banana Leaf 香蕉叶饭真的赚钱吗？</h3>
+    <p class="reel-en">Is banana leaf rice actually profitable? A data-driven breakdown of margins, costs, and the real numbers behind the restaurant.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DclAZn4sQmQ/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">06 / 10</div>
+    <div class="reel-topic">F&amp;B Economics · Series 2/2</div>
+    <h3 class="reel-title">一间香蕉叶饭需要多少员工？</h3>
+    <p class="reel-en">How many staff does a banana leaf restaurant actually need? Inside the operational structure of a Malaysian institution.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/Dc5OOm_ybph/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">07 / 10</div>
+    <div class="reel-topic">Gambling Policy · Series 1/2</div>
+    <h3 class="reel-title">赌博不好，就该全面禁赌吗？</h3>
+    <p class="reel-en">Gambling is harmful — but should we ban it entirely? A nuanced debate on prohibition vs. regulation.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DdGoW9LSGZl/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">08 / 10</div>
+    <div class="reel-topic">Gambling Policy · Series 2/2</div>
+    <h3 class="reel-title">60秒搞懂 博彩业贡献给政府的税收</h3>
+    <p class="reel-en">60 seconds: how much does the gambling industry actually contribute in tax revenue? The numbers might surprise you.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DdNvoJxM5YF/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">09 / 10</div>
+    <div class="reel-topic">Career &amp; Work · Series 1/2</div>
+    <h3 class="reel-title">面对薪水不高的工作，除了离开我们还可以干嘛？</h3>
+    <p class="reel-en">Facing low pay — what can we do besides quit? Practical perspectives on navigating undervalued work.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DdWMuEopujp/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">10 / 11</div>
+    <div class="reel-topic">Career &amp; Work · Series 2/2</div>
+    <h3 class="reel-title">你是靠什么calling工作？</h3>
+    <p class="reel-en">What's your calling at work? Exploring what drives people to show up — beyond the paycheck.</p>
+    <a class="reel-link" href="https://www.instagram.com/reel/DdlasP3J6mb/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+  <div class="reel-card reveal">
+    <div class="reel-number">11 / 11</div>
+    <div class="reel-topic">Governance &amp; Policy</div>
+    <h3 class="reel-title">There's no need to rush into local elections? Why?</h3>
+    <p class="reel-en">Unpacking the debate around local elections in Malaysia — why some argue there's no urgency, and what's really at stake for democratic representation.</p>
+    <a class="reel-link" href="https://www.instagram.com/p/Dd3eN-XyQDW/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+  </div>
+
+</div>
+
+<div class="project-nav">
+  <a class="project-nav-link" href="dreamer.html">
+    <p class="project-nav-dir">← Previous</p>
+    <p class="project-nav-title">Dreamer</p>
+    <p class="project-nav-tag">Short Film · 2025</p>
+  </a>
+  <a class="project-nav-link next" href="langit-perlis.html">
+    <p class="project-nav-dir">Next →</p>
+    <p class="project-nav-title">Langit Perlis</p>
+    <p class="project-nav-tag">Travel Documentary · 2025</p>
+  </a>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
