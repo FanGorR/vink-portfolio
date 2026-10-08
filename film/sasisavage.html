@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOL Collab — Sasi Savage · Vincent Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  /* ── Works grid ── */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+  .work-card {
+    background: var(--dark);
+    display: flex; flex-direction: column;
+    border: 1px solid rgba(200,146,42,0.06);
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .work-thumb {
+    width: 100%; aspect-ratio: 9 / 16;
+    overflow: hidden; background: var(--dark2);
+    flex-shrink: 0;
+  }
+  .work-thumb img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.9) saturate(0.85);
+  }
+  .work-card:hover .work-thumb img { transform: scale(1.04); filter: brightness(1) saturate(1); }
+  .work-body {
+    padding: 28px 26px 26px;
+    display: flex; flex-direction: column; flex: 1;
+  }
+  .work-card:hover { border-color: rgba(200,146,42,0.2); }
+  .work-number {
+    font-family: var(--font-mono); font-size: 0.55rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(200,146,42,0.4); margin-bottom: 8px;
+  }
+  .work-type {
+    font-family: var(--font-mono); font-size: 0.6rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 16px;
+  }
+  .work-title {
+    font-family: var(--font-serif); font-size: 1.1rem;
+    color: var(--cream); line-height: 1.45;
+    margin: 0 0 12px; font-weight: 400;
+  }
+  .work-desc {
+    font-family: var(--font-mono); font-size: 0.63rem;
+    color: var(--text-dim); letter-spacing: 0.04em;
+    line-height: 1.6; flex: 1; margin-bottom: 28px;
+  }
+  .work-stats {
+    font-family: var(--font-mono); font-size: 0.6rem;
+    letter-spacing: 0.08em; color: var(--amber);
+    margin-bottom: 20px;
+  }
+  .work-link {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+  }
+  .work-link:hover { gap: 10px; }
+
+  /* ── Tools strip ── */
+  .tools-strip {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    padding: 0 8vw 48px;
+  }
+  .tool-pill {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(200,146,42,0.25);
+    padding: 7px 16px;
+    background: rgba(200,146,42,0.04);
+  }
+
+  .project-body { grid-template-columns: 1fr; gap: 0; padding-bottom: 48px; }
+  .project-body-text { max-width: 740px; }
+
+  @media (max-width: 900px) {
+    .works-grid { grid-template-columns: 1fr; }
+    .work-thumb { aspect-ratio: 16 / 9; }
+  }
+  @media (max-width: 640px) {
+    .works-grid { padding: 0 5vw 64px !important; margin-top: 36px; }
+    .work-body { padding: 22px 18px 20px; }
+    .tools-strip { padding: 32px 5vw 0; gap: 8px; }
+    .tool-pill { font-size: 0.58rem; padding: 6px 12px; }
+  }
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">VIN<span>K</span></a>
+  <ul class="nav-links">
+    <li><a href="../film.html" class="active">Film</a></li>
+    <li><a href="../xr.html">XR &amp; 3D</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-hero">
+  <div class="project-hero-bg" style="background:linear-gradient(135deg,#121008 50%,#201a08 100%); background-image:linear-gradient(to top,rgba(10,8,5,0.92) 0%,rgba(10,8,5,0.3) 60%,rgba(10,8,5,0.1) 100%),url('../images/kol.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <p class="project-hero-eyebrow">KOL Collaboration <span>·</span> 2024 – Present <span>·</span> Cinematographer &amp; Video Editor</p>
+    <h1 class="project-hero-title">Collab with KOL Sasisavage</h1>
+    <p class="project-hero-tagline">Cinematic lifestyle content for Malaysian Indian influencer Sasi Savage — translating personal brand into visual language for Instagram.</p>
+  </div>
+</div>
+
+<div class="project-meta">
+  <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2024 – Present</div></div>
+  <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Cinematographer<small>Video Editor</small></div></div>
+  <div class="meta-item"><div class="meta-label">Works</div><div class="meta-value">4 Videos<small>230K+ Total Views</small></div></div>
+  <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Instagram<small>Reels</small></div></div>
+</div>
+
+<div class="project-body">
+  <div class="project-body-text reveal">
+    <h3>Overview</h3>
+    <p>An ongoing creative collaboration with Malaysian Indian influencer and content creator Sasi Savage — handling both cinematography and editing across a range of content formats, from cinematic spec advertisements to sponsored brand recaps.</p>
+    <p>Each project required adapting quickly to different visual languages: a comedy-to-cinematic bromance edit, a sleek commercial aesthetic for the Gatsby perfume spec ad, a charismatic presenter-led format for Sasi's personal branding video, and a high-energy event recap for the Shopee-sponsored F1 Sepang experience. Four videos, four distinct styles — all shot and cut in-house.</p>
+  </div>
+</div>
+
+<div class="tools-strip reveal">
+  <span class="tool-pill">Lumix S5</span>
+  <span class="tool-pill">DaVinci Resolve</span>
+  <span class="tool-pill">Adobe Premiere Pro</span>
+  <span class="tool-pill">After Effects</span>
+  <span class="tool-pill">Colour Grading</span>
+  <span class="tool-pill">Cinematography</span>
+</div>
+
+<div class="project-section reveal" style="padding-top:0; padding-bottom:0;">
+  <p class="project-section-title">Works</p>
+</div>
+
+<div class="works-grid reveal" style="padding: 0 8vw 100px; margin-top: 32px;">
+
+  <div class="work-card">
+    <a class="work-thumb" href="https://www.instagram.com/reel/DeHDHp5A1pb/" target="_blank" rel="noopener" style="display:block;">
+      <img src="../images/sasi/sasi-03.jpg" alt="F1 Sepang Recap" loading="lazy">
+    </a>
+    <div class="work-body">
+      <div class="work-number">01 / 04</div>
+      <div class="work-type">Sponsored · Event Recap</div>
+      <h3 class="work-title">F1 Sepang — Shopee</h3>
+      <p class="work-desc">Shopee sponsored Sasi with F1 Sepang tickets — shot and edited a high-energy event recap reel as a thank-you to the brand.</p>
+      <p class="work-stats">31.3K views &nbsp;·&nbsp; 1,381 likes</p>
+      <a class="work-link" href="https://www.instagram.com/reel/DeHDHp5A1pb/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
+  </div>
+
+  <div class="work-card">
+    <a class="work-thumb" href="https://www.instagram.com/reel/DAGROAQgk25/" target="_blank" rel="noopener" style="display:block;">
+      <img src="../images/sasi/sasi-04.jpg" alt="Main Character Energy" loading="lazy">
+    </a>
+    <div class="work-body">
+      <div class="work-number">02 / 04</div>
+      <div class="work-type">Lifestyle · Comedy to Cinematic</div>
+      <h3 class="work-title">Main Character Energy</h3>
+      <p class="work-desc">Opens as a playful gag — "bro thinks he's the main character" — then cuts to genuine cinematic footage capturing the warmth of two friends reuniting after a long time apart. Comedy and emotion in one edit.</p>
+      <p class="work-stats">128K views &nbsp;·&nbsp; 7,290 likes</p>
+      <a class="work-link" href="https://www.instagram.com/reel/DAGROAQgk25/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
+  </div>
+
+  <div class="work-card">
+    <a class="work-thumb" href="https://www.instagram.com/reel/Dc05FdvyJ1c/" target="_blank" rel="noopener" style="display:block;">
+      <img src="../images/sasi/sasi-02.jpg" alt="Property Agent Style" loading="lazy">
+    </a>
+    <div class="work-body">
+      <div class="work-number">03 / 04</div>
+      <div class="work-type">Personal Branding</div>
+      <h3 class="work-title">Property Agent Style</h3>
+      <p class="work-desc">A presenter-led short video edited in the fast-paced, confident style of a property agent pitch — adapting that visual language to build Sasi's personal brand identity.</p>
+      <p class="work-stats">31.1K views &nbsp;·&nbsp; 1,172 likes</p>
+      <a class="work-link" href="https://www.instagram.com/reel/Dc05FdvyJ1c/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
+  </div>
+
+  <div class="work-card">
+    <a class="work-thumb" href="https://www.instagram.com/reel/DHGP4tuPTOY/" target="_blank" rel="noopener" style="display:block;">
+      <img src="../images/sasi/sasi-01.jpg" alt="Gatsby Perfume Spec Ad" loading="lazy">
+    </a>
+    <div class="work-body">
+      <div class="work-number">04 / 04</div>
+      <div class="work-type">Commercial · Spec Ad</div>
+      <h3 class="work-title">Gatsby Perfume</h3>
+      <p class="work-desc">A cinematic spec advertisement for Gatsby perfume — shot and edited to simulate a polished commercial production for Sasi's channel.</p>
+      <p class="work-stats">39.5K views &nbsp;·&nbsp; 693 likes</p>
+      <a class="work-link" href="https://www.instagram.com/reel/DHGP4tuPTOY/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="project-nav">
+  <a class="project-nav-link" href="bbk-network.html">
+    <p class="project-nav-dir">← Previous</p>
+    <p class="project-nav-title">BBK Network</p>
+    <p class="project-nav-tag">Internship · Video Editor · 2026</p>
+  </a>
+  <a class="project-nav-link next" href="dreamer.html">
+    <p class="project-nav-dir">Next →</p>
+    <p class="project-nav-title">Dreamer</p>
+    <p class="project-nav-tag">Short Film · LOKA 2nd Place · 2025</p>
+  </a>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 <span>Vincent Kong</span> &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-made">A VinK portfolio website &amp; ☕</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

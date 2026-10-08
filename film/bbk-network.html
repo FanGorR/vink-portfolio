@@ -10,27 +10,36 @@
   /* ── Reel grid ── */
   .reel-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
     margin-top: 56px;
   }
   .reel-card {
     background: var(--dark);
-    padding: 36px 32px 32px;
     border: 1px solid rgba(200,146,42,0.06);
     display: flex; flex-direction: column;
     transition: border-color 0.3s, background 0.3s;
     position: relative;
-  }
-  .reel-card::before {
-    content: '';
-    position: absolute; left: 0; top: 0;
-    width: 3px; height: 0;
-    background: var(--amber);
-    transition: height 0.35s ease;
+    overflow: hidden;
   }
   .reel-card:hover { background: rgba(200,146,42,0.04); border-color: rgba(200,146,42,0.2); }
-  .reel-card:hover::before { height: 100%; }
+  .reel-thumb {
+    display: block;
+    width: 100%; aspect-ratio: 9 / 16;
+    overflow: hidden; background: var(--dark2);
+    flex-shrink: 0;
+  }
+  .reel-thumb img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.88) saturate(0.85);
+  }
+  .reel-card:hover .reel-thumb img { transform: scale(1.04); filter: brightness(1) saturate(1); }
+  .reel-body {
+    padding: 28px 26px 26px;
+    display: flex; flex-direction: column; flex: 1;
+  }
   .reel-number {
     font-family: var(--font-mono); font-size: 0.55rem;
     letter-spacing: 0.2em; text-transform: uppercase;
@@ -137,7 +146,7 @@
       padding: 0 5vw 64px !important;
       margin-top: 36px;
     }
-    .reel-card { padding: 28px 22px 24px; }
+    .reel-body { padding: 22px 18px 20px; }
     .tools-strip { padding: 32px 5vw 0; gap: 8px; }
     .tool-pill { font-size: 0.58rem; padding: 6px 12px; }
   }
@@ -285,91 +294,146 @@
 <div class="reel-grid" style="padding: 0 8vw 100px; margin-top: 32px;">
 
   <div class="reel-card reveal">
-    <div class="reel-number">01 / 10</div>
-    <div class="reel-topic">Malaysian Football · Series 1/3</div>
-    <h3 class="reel-title">你聽說過馬來西亞的足球光輝歲月嗎？</h3>
-    <p class="reel-en">Did you know Malaysia had a golden age of football? A look back at the nation's forgotten glory days on the pitch.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DbnQ_xkyj2-/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DbnQ_xkyj2-/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-01.jpg" alt="Malaysian Football Golden Age" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">01 / 11</div>
+      <div class="reel-topic">Malaysian Football · Series 1/3</div>
+      <h3 class="reel-title">你聽說過馬來西亞的足球光輝歲月嗎？</h3>
+      <p class="reel-en">Did you know Malaysia had a golden age of football? A look back at the nation's forgotten glory days on the pitch.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DbnQ_xkyj2-/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">02 / 10</div>
-    <div class="reel-topic">Match Fixing · Series 2/3</div>
-    <h3 class="reel-title">赌球赌到70%足球比赛被操控？</h3>
-    <p class="reel-en">Was 70% of football fixed? Breaking down the scale of match-fixing that plagued Malaysian football.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DbsZeV5yoQJ/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DbsZeV5yoQJ/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-02.jpg" alt="Match Fixing 70%" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">02 / 11</div>
+      <div class="reel-topic">Match Fixing · Series 2/3</div>
+      <h3 class="reel-title">赌球赌到70%足球比赛被操控？</h3>
+      <p class="reel-en">Was 70% of football fixed? Breaking down the scale of match-fixing that plagued Malaysian football.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DbsZeV5yoQJ/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">03 / 10</div>
-    <div class="reel-topic">Match Fixing · Series 3/3</div>
-    <h3 class="reel-title">你知道"踢假球"是怎么运作的吗？</h3>
-    <p class="reel-en">How does match fixing actually work? An explainer on the mechanics behind football's darkest operation.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/Db-lvXCMYOM/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/Db-lvXCMYOM/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-03.jpg" alt="How Match Fixing Works" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">03 / 11</div>
+      <div class="reel-topic">Match Fixing · Series 3/3</div>
+      <h3 class="reel-title">你知道"踢假球"是怎么运作的吗？</h3>
+      <p class="reel-en">How does match fixing actually work? An explainer on the mechanics behind football's darkest operation.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/Db-lvXCMYOM/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">04 / 10</div>
-    <div class="reel-topic">Society &amp; Rights</div>
-    <h3 class="reel-title">要如何在多元的社会捍卫权益呢？</h3>
-    <p class="reel-en">How do we defend our rights in a diverse society? Exploring civic advocacy in Malaysia's multicultural landscape.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DcA5E5VMm-U/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DcA5E5VMm-U/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-04.jpg" alt="Society and Rights" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">04 / 11</div>
+      <div class="reel-topic">Society &amp; Rights</div>
+      <h3 class="reel-title">要如何在多元的社会捍卫权益呢？</h3>
+      <p class="reel-en">How do we defend our rights in a diverse society? Exploring civic advocacy in Malaysia's multicultural landscape.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DcA5E5VMm-U/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">05 / 10</div>
-    <div class="reel-topic">F&amp;B Economics · Series 1/2</div>
-    <h3 class="reel-title">Banana Leaf 香蕉叶饭真的赚钱吗？</h3>
-    <p class="reel-en">Is banana leaf rice actually profitable? A data-driven breakdown of margins, costs, and the real numbers behind the restaurant.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DclAZn4sQmQ/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DclAZn4sQmQ/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-05.jpg" alt="Banana Leaf Rice Economics" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">05 / 11</div>
+      <div class="reel-topic">F&amp;B Economics · Series 1/2</div>
+      <h3 class="reel-title">Banana Leaf 香蕉叶饭真的赚钱吗？</h3>
+      <p class="reel-en">Is banana leaf rice actually profitable? A data-driven breakdown of margins, costs, and the real numbers behind the restaurant.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DclAZn4sQmQ/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">06 / 10</div>
-    <div class="reel-topic">F&amp;B Economics · Series 2/2</div>
-    <h3 class="reel-title">一间香蕉叶饭需要多少员工？</h3>
-    <p class="reel-en">How many staff does a banana leaf restaurant actually need? Inside the operational structure of a Malaysian institution.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/Dc5OOm_ybph/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/Dc5OOm_ybph/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-06.jpg" alt="Banana Leaf Staff Count" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">06 / 11</div>
+      <div class="reel-topic">F&amp;B Economics · Series 2/2</div>
+      <h3 class="reel-title">一间香蕉叶饭需要多少员工？</h3>
+      <p class="reel-en">How many staff does a banana leaf restaurant actually need? Inside the operational structure of a Malaysian institution.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/Dc5OOm_ybph/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">07 / 10</div>
-    <div class="reel-topic">Gambling Policy · Series 1/2</div>
-    <h3 class="reel-title">赌博不好，就该全面禁赌吗？</h3>
-    <p class="reel-en">Gambling is harmful — but should we ban it entirely? A nuanced debate on prohibition vs. regulation.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DdGoW9LSGZl/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DdGoW9LSGZl/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-07.jpg" alt="Gambling Ban Debate" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">07 / 11</div>
+      <div class="reel-topic">Gambling Policy · Series 1/2</div>
+      <h3 class="reel-title">赌博不好，就该全面禁赌吗？</h3>
+      <p class="reel-en">Gambling is harmful — but should we ban it entirely? A nuanced debate on prohibition vs. regulation.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DdGoW9LSGZl/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">08 / 10</div>
-    <div class="reel-topic">Gambling Policy · Series 2/2</div>
-    <h3 class="reel-title">60秒搞懂 博彩业贡献给政府的税收</h3>
-    <p class="reel-en">60 seconds: how much does the gambling industry actually contribute in tax revenue? The numbers might surprise you.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DdNvoJxM5YF/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DdNvoJxM5YF/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-08.jpg" alt="Gambling Tax Revenue" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">08 / 11</div>
+      <div class="reel-topic">Gambling Policy · Series 2/2</div>
+      <h3 class="reel-title">60秒搞懂 博彩业贡献给政府的税收</h3>
+      <p class="reel-en">60 seconds: how much does the gambling industry actually contribute in tax revenue? The numbers might surprise you.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DdNvoJxM5YF/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">09 / 10</div>
-    <div class="reel-topic">Career &amp; Work · Series 1/2</div>
-    <h3 class="reel-title">面对薪水不高的工作，除了离开我们还可以干嘛？</h3>
-    <p class="reel-en">Facing low pay — what can we do besides quit? Practical perspectives on navigating undervalued work.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DdWMuEopujp/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DdWMuEopujp/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-09.jpg" alt="Low Pay at Work" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">09 / 11</div>
+      <div class="reel-topic">Career &amp; Work · Series 1/2</div>
+      <h3 class="reel-title">面对薪水不高的工作，除了离开我们还可以干嘛？</h3>
+      <p class="reel-en">Facing low pay — what can we do besides quit? Practical perspectives on navigating undervalued work.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DdWMuEopujp/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">10 / 11</div>
-    <div class="reel-topic">Career &amp; Work · Series 2/2</div>
-    <h3 class="reel-title">你是靠什么calling工作？</h3>
-    <p class="reel-en">What's your calling at work? Exploring what drives people to show up — beyond the paycheck.</p>
-    <a class="reel-link" href="https://www.instagram.com/reel/DdlasP3J6mb/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/reel/DdlasP3J6mb/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-10.jpg" alt="Calling at Work" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">10 / 11</div>
+      <div class="reel-topic">Career &amp; Work · Series 2/2</div>
+      <h3 class="reel-title">你是靠什么calling工作？</h3>
+      <p class="reel-en">What's your calling at work? Exploring what drives people to show up — beyond the paycheck.</p>
+      <a class="reel-link" href="https://www.instagram.com/reel/DdlasP3J6mb/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
   <div class="reel-card reveal">
-    <div class="reel-number">11 / 11</div>
-    <div class="reel-topic">Governance &amp; Policy</div>
-    <h3 class="reel-title">There's no need to rush into local elections? Why?</h3>
-    <p class="reel-en">Unpacking the debate around local elections in Malaysia — why some argue there's no urgency, and what's really at stake for democratic representation.</p>
-    <a class="reel-link" href="https://www.instagram.com/p/Dd3eN-XyQDW/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    <a class="reel-thumb" href="https://www.instagram.com/p/Dd3eN-XyQDW/" target="_blank" rel="noopener">
+      <img src="../images/bbk/reels/reel-11.jpg" alt="Local Elections Debate" loading="lazy">
+    </a>
+    <div class="reel-body">
+      <div class="reel-number">11 / 11</div>
+      <div class="reel-topic">Governance &amp; Policy</div>
+      <h3 class="reel-title">There's no need to rush into local elections? Why?</h3>
+      <p class="reel-en">Unpacking the debate around local elections in Malaysia — why some argue there's no urgency, and what's really at stake for democratic representation.</p>
+      <a class="reel-link" href="https://www.instagram.com/p/Dd3eN-XyQDW/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
   </div>
 
 </div>
@@ -380,10 +444,10 @@
     <p class="project-nav-title">Dreamer</p>
     <p class="project-nav-tag">Short Film · 2025</p>
   </a>
-  <a class="project-nav-link next" href="langit-perlis.html">
+  <a class="project-nav-link next" href="sasisavage.html">
     <p class="project-nav-dir">Next →</p>
-    <p class="project-nav-title">Langit Perlis</p>
-    <p class="project-nav-tag">Travel Documentary · 2025</p>
+    <p class="project-nav-title">KOL Collab — Sasi Savage</p>
+    <p class="project-nav-tag">Cinematographer · Video Editor · 2024 – Present</p>
   </a>
 </div>
 
